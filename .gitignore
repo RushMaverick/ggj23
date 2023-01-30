@@ -1,3 +1,7 @@
 # Godot 4+ specific ignores
 .godot/
 .DS_Store
+.import/
+*.translation
+export_presets.cfg
+.mono/
