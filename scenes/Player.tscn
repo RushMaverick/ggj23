@@ -1,5 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://7vfxr5gepqli"]
+[gd_scene load_steps=2 format=3 uid="uid://is8ejqknjbb2"]
 
 [ext_resource type="PackedScene" uid="uid://cl6qsl7b0qfd6" path="res://assets/turnip/turnip.glb" id="1_t55ud"]
 
-[node name="turnip" instance=ExtResource("1_t55ud")]
+[node name="Player" instance=ExtResource("1_t55ud")]
+
+[node name="Turnip" parent="." index="0"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Turnip" index="0"]
+bones/0/position = Vector3(0, 0.358893, 0)
+bones/1/rotation = Quaternion(-0.000658917, -0.0808968, -0.996656, 0.0115189)
+bones/2/rotation = Quaternion(-0.1818, 0.00108365, -0.0162407, 0.983201)
+bones/3/rotation = Quaternion(-0.00800958, -0.0171286, -0.988308, 0.151297)
+bones/4/rotation = Quaternion(0.310498, -0.0859973, 0.00908176, 0.946632)
+bones/5/rotation = Quaternion(-0.00120588, 0.0809031, 0.996655, 0.0114746)
+bones/6/rotation = Quaternion(-0.181814, -0.00132219, 0.0160854, 0.9832)
+bones/7/rotation = Quaternion(0.018724, 0.0130302, 0.988163, 0.151705)
+bones/8/rotation = Quaternion(0.310577, 0.147068, -0.00577515, 0.939085)
+bones/9/rotation = Quaternion(-0.0964418, 3.54704e-14, -2.29935e-08, 0.995339)
+bones/10/rotation = Quaternion(-0.319754, 1.21861e-14, -7.62354e-08, 0.947501)
+bones/11/rotation = Quaternion(-0.310098, -2.33558e-14, -7.39331e-08, 0.950705)
+bones/12/rotation = Quaternion(-0.261746, 3.68105e-14, -6.24051e-08, 0.965137)
