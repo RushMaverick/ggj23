@@ -1,5 +1,5 @@
 [gd_scene load_steps=2 format=3 uid="uid://7vfxr5gepqli"]
 
-[ext_resource type="PackedScene" uid="uid://cjfxsefi357q8" path="res://assets/turnip/turnip.glb" id="1_t55ud"]
+[ext_resource type="PackedScene" uid="uid://cl6qsl7b0qfd6" path="res://assets/turnip/turnip.glb" id="1_t55ud"]
 
 [node name="turnip" instance=ExtResource("1_t55ud")]

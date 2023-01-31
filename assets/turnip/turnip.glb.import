@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cjfxsefi357q8"
+uid="uid://cl6qsl7b0qfd6"
 path="res://.godot/imported/turnip.glb-4fdb9e9ab3f365222deeee807692cdb1.scn"
 
 [deps]
@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/turnip.glb-4fdb9e9ab3f365222deeee807692cdb1.s
 
 [params]
 
-nodes/root_type="Node3D"
+nodes/root_type="CharacterBody3D"
 nodes/root_name="Scene Root"
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
