@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://b8gt68a4whbsl"]
+[gd_scene load_steps=6 format=3 uid="uid://ctpcxm22ewttp"]
 
 [ext_resource type="PackedScene" uid="uid://is8ejqknjbb2" path="res://scenes/Player.tscn" id="1_u5eqk"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="2_n6hsm"]
-[ext_resource type="Script" path="res://scenes/FollowCamera.gd" id="3_mds8m"]
+[ext_resource type="Script" path="res://scripts/FollowCamera.gd" id="3_3mko3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fcm8r"]
 size = Vector3(30, 1, 30)
@@ -31,4 +31,4 @@ script = ExtResource("2_n6hsm")
 
 [node name="FollowCamera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.988236, 0.152934, 0, -0.152934, 0.988236, 0, 0.985068, 3.06238)
-script = ExtResource("3_mds8m")
+script = ExtResource("3_3mko3")
