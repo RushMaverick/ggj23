@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://is8ejqknjbb2"]
+[gd_scene load_steps=3 format=3 uid="uid://is8ejqknjbb2"]
 
 [ext_resource type="PackedScene" uid="uid://cl6qsl7b0qfd6" path="res://assets/turnip/turnip.glb" id="1_t55ud"]
+[ext_resource type="Script" path="res://scripts/Player.gd" id="2_jilhi"]
 
 [node name="Player" instance=ExtResource("1_t55ud")]
+script = ExtResource("2_jilhi")
 
 [node name="Turnip" parent="." index="0"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
