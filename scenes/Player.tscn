@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://is8ejqknjbb2"]
 
-[ext_resource type="PackedScene" uid="uid://cl6qsl7b0qfd6" path="res://assets/turnip/turnip.glb" id="1_t55ud"]
+[ext_resource type="PackedScene" uid="uid://djw8046jvwpi5" path="res://assets/turnip/turnip.glb" id="1_t55ud"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="2_jilhi"]
 
 [node name="Player" instance=ExtResource("1_t55ud")]
@@ -23,3 +23,6 @@ bones/9/rotation = Quaternion(-0.0964418, 3.54704e-14, -2.29935e-08, 0.995339)
 bones/10/rotation = Quaternion(-0.319754, 1.21861e-14, -7.62354e-08, 0.947501)
 bones/11/rotation = Quaternion(-0.310098, -2.33558e-14, -7.39331e-08, 0.950705)
 bones/12/rotation = Quaternion(-0.261746, 3.68105e-14, -6.24051e-08, 0.965137)
+
+[node name="Camera3D" type="Camera3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 0.985639, 0.168868, 0, -0.168868, 0.985639, 0, 1.14174, 1.98253)

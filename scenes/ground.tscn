@@ -1,8 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://ctpcxm22ewttp"]
+[gd_scene load_steps=4 format=3 uid="uid://ctpcxm22ewttp"]
 
 [ext_resource type="PackedScene" uid="uid://is8ejqknjbb2" path="res://scenes/Player.tscn" id="1_u5eqk"]
-[ext_resource type="Script" path="res://scripts/Player.gd" id="2_n6hsm"]
-[ext_resource type="Script" path="res://scripts/FollowCameraPoint.gd" id="3_i050g"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fcm8r"]
 size = Vector3(30, 1, 30)
@@ -27,11 +25,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.48668, 7.23125)
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_u5eqk")]
-script = ExtResource("2_n6hsm")
-
-[node name="FollowCameraPoint" type="Node3D" parent="."]
-transform = Transform3D(0.994881, -0.0251317, 0.0978814, 0, 0.968583, 0.24869, -0.101056, -0.247417, 0.963625, 0, 0.642578, -0.00551957)
-script = ExtResource("3_i050g")
-
-[node name="Camera3D" type="Camera3D" parent="FollowCameraPoint"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.19209e-07, 2.18466)
