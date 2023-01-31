@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://dm6gbs724pr03"]
+
+[ext_resource type="Script" path="res://scripts/Enemy.gd" id="1_rcc5m"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ung1n"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6b3pg"]
+albedo_color = Color(1, 0.101961, 0.207843, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_jsvph"]
+material = SubResource("StandardMaterial3D_6b3pg")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_44x2d"]
+radius = 1.0
+
+[node name="Enemy" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.745001, 0)
+script = ExtResource("1_rcc5m")
+move_speed = null
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_ung1n")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+aabb = AABB(-0.515217, -0.998067, -0.516143, 1.03043, 1.99613, 1.03229)
+
+[node name="pivot" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="pivot"]
+mesh = SubResource("CapsuleMesh_jsvph")
+
+[node name="ShapeCast3D" type="ShapeCast3D" parent="." groups=["target_to_attack"]]
+transform = Transform3D(-4.37114e-08, -1, 3.48787e-16, 1, -4.37114e-08, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, 0.723193, 0.214849, 0.0256905)
+shape = SubResource("CylinderShape3D_44x2d")
+target_position = Vector3(2.08165e-12, -1, 2.08165e-12)

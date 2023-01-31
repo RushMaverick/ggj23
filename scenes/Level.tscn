@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dm3dhcu3hx1l"]
+
+[ext_resource type="PackedScene" uid="uid://dm6gbs724pr03" path="res://scenes/Enemy.tscn" id="1_6asst"]
+[ext_resource type="PackedScene" uid="uid://b8gt68a4whbsl" path="res://scenes/Ground.tscn" id="2_3yc1u"]
+[ext_resource type="PackedScene" uid="uid://is8ejqknjbb2" path="res://scenes/Player.tscn" id="3_widq0"]
+
+[node name="Level" type="Node"]
+
+[node name="Enemy" parent="." instance=ExtResource("1_6asst")]
+
+[node name="Node" parent="." instance=ExtResource("2_3yc1u")]
+
+[node name="Player" parent="." instance=ExtResource("3_widq0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.120047, 0.739914, -4.22238)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.424157, 2.31498, -0.104588)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.91108, 0, -0.41223, 0, 1, 0, 0.41223, 0, 0.91108, -3.2946, 1.15075, -1.96404)
