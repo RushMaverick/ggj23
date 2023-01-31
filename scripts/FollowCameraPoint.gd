@@ -1,10 +1,12 @@
 extends Node3D
 
-@export var sensitivity = 0.3
+@export var sensitivity = 0.1
+
+@export var min_pitch_deg = -30
+@export var max_pitch_deg = 0
+
 
 var mouse_delta = Vector2.ZERO
-var camera_min_angle = -0.8
-var camera_max_angle = 0.8
 
 var player
 
@@ -20,8 +22,7 @@ func _process(delta):
 	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		rotation.x -= mouse_delta.y * sensitivity * delta
 		rotation.y -= mouse_delta.x * sensitivity * delta
-		rotation.x = clamp(rotation.x, camera_min_angle, camera_max_angle)
-		rotation.y = clamp(rotation.y, camera_min_angle, camera_max_angle)
+		rotation.x = clamp(rotation.x, deg_to_rad(min_pitch_deg), deg_to_rad(max_pitch_deg))
 		mouse_delta = Vector2.ZERO
 
 func _input(event):
