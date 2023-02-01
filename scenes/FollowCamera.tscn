@@ -3,7 +3,8 @@
 [ext_resource type="Script" path="res://scripts/FollowCamera.gd" id="1_f5amo"]
 
 [node name="FollowCamera" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 0.997744, 0.0671272, 0, -0.0671272, 0.997744, 0, 0.681338, 1.45067)
+transform = Transform3D(1, 0, 0, 0, 0.997744, 0.0671272, 0, -0.0671272, 0.997744, 0, 0, 0)
 script = ExtResource("1_f5amo")
 
 [node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.994892, 0.100952, 0, -0.100952, 0.994892, 0, 0.90855, 2.42043)
