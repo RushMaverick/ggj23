@@ -6,6 +6,8 @@ extends CharacterBody3D
 @export var bite_distance = 100
 @export var bite_cooldown_ms = 2000
 
+var corpse_scene = preload("res://scenes/EnemyCorpse.tscn")
+
 var prev_bite_time = 0
 var target = null
 
@@ -25,6 +27,10 @@ func _physics_process(delta):
 func take_damage(amount):
 	health -= amount
 	if health <= 0:
+		var corpse = corpse_scene.instantiate()
+		corpse.global_position = global_position
+		corpse.rotation = rotation
+		get_parent().add_child(corpse)
 		queue_free()
 
 func _on_hurtbox_body_entered(body):

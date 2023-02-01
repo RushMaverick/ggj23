@@ -1,16 +1,31 @@
 extends CharacterBody3D
 
+signal health_changed(new_health)
+signal stamina_changed(new_stamina)
+
+@export var max_health = 100
+@export var max_stamina = 100
+@export var stamina_recovery_rate = 5
 @export var movement_speed = 150
-@export var health = 100
-@export var stamina = 100
-@export var damage = 20
+@export var damage = 15
+@export var hit_stamina_deduction = 10
+@export var hit_cooldown_ms = 400
+
+var health = max_health
+var stamina = max_stamina
 
 var enemies_in_hurtbox = []
-
+var prev_hit_time = 0
 var yaw
 
 func _ready():
+	yaw = rotation.y
 	$AnimationPlayer.play("Idle")
+
+func _process(delta):
+	stamina += stamina_recovery_rate * delta
+	clamp(stamina, 0, max_stamina)
+	emit_signal("stamina_changed", stamina)
 
 func _physics_process(delta):
 	var direction = Vector3.ZERO
@@ -37,12 +52,20 @@ func _physics_process(delta):
 		$AnimationPlayer.play("Idle")
 
 func attack():
-	$AnimationPlayer.play("Attack")
-	for enemy in enemies_in_hurtbox:
-		enemy.take_damage(damage)
+	if Time.get_ticks_msec() - prev_hit_time > hit_cooldown_ms \
+		and stamina >= hit_stamina_deduction:
+		prev_hit_time = Time.get_ticks_msec()
+		stamina -= hit_stamina_deduction
+		clamp(stamina, 0, max_stamina)
+		emit_signal("stamina_changed", stamina)
+		$AnimationPlayer.play("Attack")
+		for enemy in enemies_in_hurtbox:
+			enemy.take_damage(damage)
 
 func take_damage(amount):
 	health -= amount
+	clamp(health, 0, max_health)
+	emit_signal("health_changed", health)
 	if health <= 0:
 		queue_free()
 

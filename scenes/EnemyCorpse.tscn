@@ -1,0 +1,118 @@
+[gd_scene load_steps=11 format=3 uid="uid://ddhxbj0cll1bk"]
+
+[ext_resource type="PackedScene" uid="uid://kfsdychbk5a8" path="res://assets/beetle_corpse/beetle_corpse_head.glb" id="1_s2q6f"]
+[ext_resource type="PackedScene" uid="uid://bhrr35dhbgis5" path="res://assets/beetle_corpse/beetle_corpse_upper_body.glb" id="2_02fq2"]
+[ext_resource type="PackedScene" uid="uid://csstocedddimr" path="res://assets/beetle_corpse/beetle_corpse_lower_body.glb" id="3_g1pw3"]
+[ext_resource type="PackedScene" uid="uid://cdfsqco0k0xge" path="res://assets/beetle_corpse/beetle_corpse_leg_right.glb" id="4_c3t0t"]
+[ext_resource type="PackedScene" uid="uid://bnlmjj7ao3eju" path="res://assets/beetle_corpse/beetle_corpse_leg_left.glb" id="5_itjur"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_btt48"]
+rough = true
+bounce = 0.2
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_6nti8"]
+height = 0.479418
+radius = 0.155874
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_uxp6f"]
+height = 0.260631
+radius = 0.21527
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ojo2p"]
+height = 0.536675
+radius = 0.21527
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_hgad7"]
+height = 0.257645
+radius = 0.0932792
+
+[node name="EnemyCorpse" type="Node3D"]
+
+[node name="s" parent="." instance=ExtResource("1_s2q6f")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0160197, 0, 0.0108759)
+collision_layer = 2
+physics_material_override = SubResource("PhysicsMaterial_btt48")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="s"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.207573, 0.618741)
+shape = SubResource("CylinderShape3D_6nti8")
+
+[node name="beetle_corpse_upper_body" parent="." instance=ExtResource("2_02fq2")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0160197, 0, 0.0108759)
+collision_layer = 2
+physics_material_override = SubResource("PhysicsMaterial_btt48")
+can_sleep = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="beetle_corpse_upper_body"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.200732, 0.236485)
+shape = SubResource("CylinderShape3D_uxp6f")
+
+[node name="beetle_corpse_lower_body" parent="." instance=ExtResource("3_g1pw3")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0160197, 0, 0.0108759)
+collision_layer = 2
+physics_material_override = SubResource("PhysicsMaterial_btt48")
+can_sleep = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="beetle_corpse_lower_body"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.200732, -0.184447)
+shape = SubResource("CylinderShape3D_ojo2p")
+
+[node name="beetle_corpse_leg_left" parent="." instance=ExtResource("5_itjur")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0160197, 0, 0.0108759)
+collision_layer = 2
+physics_material_override = SubResource("PhysicsMaterial_btt48")
+can_sleep = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="beetle_corpse_leg_left"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.355059, 0.0111331, 0.269157)
+shape = SubResource("CylinderShape3D_hgad7")
+
+[node name="beetle_corpse_leg_left2" parent="." instance=ExtResource("5_itjur")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.00826657, 0, 0.288749)
+collision_layer = 2
+physics_material_override = SubResource("PhysicsMaterial_btt48")
+can_sleep = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="beetle_corpse_leg_left2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.355059, 0.0111331, 0.269157)
+shape = SubResource("CylinderShape3D_hgad7")
+
+[node name="beetle_corpse_leg_left3" parent="." instance=ExtResource("5_itjur")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.0317935, 0, 0.557933)
+collision_layer = 2
+physics_material_override = SubResource("PhysicsMaterial_btt48")
+can_sleep = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="beetle_corpse_leg_left3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.355059, 0.0111331, 0.269157)
+shape = SubResource("CylinderShape3D_hgad7")
+
+[node name="beetle_corpse_leg_right" parent="." instance=ExtResource("4_c3t0t")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0160197, 0, 0.0108759)
+collision_layer = 2
+physics_material_override = SubResource("PhysicsMaterial_btt48")
+can_sleep = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="beetle_corpse_leg_right"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.344521, 0.0111331, 0.269157)
+shape = SubResource("CylinderShape3D_hgad7")
+
+[node name="beetle_corpse_leg_right2" parent="." instance=ExtResource("4_c3t0t")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.00823088, 0, 0.28834)
+collision_layer = 2
+physics_material_override = SubResource("PhysicsMaterial_btt48")
+can_sleep = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="beetle_corpse_leg_right2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.344521, 0.0111331, 0.269157)
+shape = SubResource("CylinderShape3D_hgad7")
+
+[node name="beetle_corpse_leg_right3" parent="." instance=ExtResource("4_c3t0t")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.0318074, 0, 0.558093)
+collision_layer = 2
+physics_material_override = SubResource("PhysicsMaterial_btt48")
+can_sleep = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="beetle_corpse_leg_right3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.344521, 0.0111331, 0.269157)
+shape = SubResource("CylinderShape3D_hgad7")

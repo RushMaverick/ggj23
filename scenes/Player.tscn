@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b6yf33nqp0moq"]
+[gd_scene load_steps=6 format=3 uid="uid://b6yf33nqp0moq"]
 
 [ext_resource type="PackedScene" uid="uid://67hebc3snerl" path="res://assets/turnip/turnip.glb" id="1_t55ud"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="2_jilhi"]
+[ext_resource type="PackedScene" uid="uid://c4m2cl0eidren" path="res://scenes/HUD.tscn" id="3_x7etn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hhea5"]
 size = Vector3(0.846341, 0.609593, 0.799016)
@@ -10,6 +11,8 @@ size = Vector3(0.846341, 0.609593, 0.799016)
 
 [node name="Player" groups=["player"] instance=ExtResource("1_t55ud")]
 script = ExtResource("2_jilhi")
+
+[node name="HUD" parent="." index="0" instance=ExtResource("3_x7etn")]
 
 [node name="Skeleton3D" parent="Turnip" index="0"]
 bones/0/position = Vector3(0, 0.358893, 0)
@@ -33,9 +36,11 @@ monitorable = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.393243, 0.474976)
 shape = SubResource("BoxShape3D_hhea5")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="3"]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0.58224, 0)
 shape = SubResource("CapsuleShape3D_qptrh")
 
+[connection signal="health_changed" from="." to="HUD" method="_on_player_health_changed"]
+[connection signal="stamina_changed" from="." to="HUD" method="_on_player_stamina_changed"]
 [connection signal="body_entered" from="Turnip/Hurtbox" to="." method="_on_hurtbox_body_entered" flags=18]
 [connection signal="body_exited" from="Turnip/Hurtbox" to="." method="_on_hurtbox_body_exited"]

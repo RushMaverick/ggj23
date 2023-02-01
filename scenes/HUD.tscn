@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://c4m2cl0eidren"]
+[gd_scene load_steps=7 format=3 uid="uid://c4m2cl0eidren"]
 
 [ext_resource type="Texture2D" uid="uid://c0q7hnuhe22ly" path="res://assets/hud_face.png" id="1_7epr2"]
+[ext_resource type="Script" path="res://scripts/HUD.gd" id="1_ey83a"]
 
 [sub_resource type="Theme" id="Theme_gw63o"]
 
@@ -13,27 +14,30 @@ bg_color = Color(0.819608, 0.219608, 0.219608, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b4l8k"]
 bg_color = Color(0.380392, 0.819608, 0.219608, 1)
 
-[node name="HUD" type="Control"]
+[node name="HUD" type="Control" node_paths=PackedStringArray("health_bar", "stamina_bar")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ey83a")
+health_bar = NodePath("PlayerStatus/HBoxContainer/VBoxContainer/HealthBar")
+stamina_bar = NodePath("PlayerStatus/HBoxContainer/VBoxContainer/StaminaBar")
 
 [node name="PlayerStatus" type="Control" parent="."]
 clip_contents = true
 anchors_preset = 0
 offset_left = 10.0
 offset_top = 10.0
-offset_right = 510.0
-offset_bottom = 110.0
+offset_right = 810.0
+offset_bottom = 210.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PlayerStatus"]
 clip_contents = true
 layout_mode = 0
-offset_right = 500.0
-offset_bottom = 100.0
+offset_right = 800.0
+offset_bottom = 200.0
 
 [node name="Portrait" type="TextureRect" parent="PlayerStatus/HBoxContainer"]
 custom_minimum_size = Vector2(20, 20)
@@ -42,23 +46,23 @@ texture = ExtResource("1_7epr2")
 expand_mode = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PlayerStatus/HBoxContainer"]
-custom_minimum_size = Vector2(300, 100)
+custom_minimum_size = Vector2(600, 100)
 layout_mode = 2
 
 [node name="HealthBar" type="ProgressBar" parent="PlayerStatus/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 15)
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 theme = SubResource("Theme_gw63o")
 theme_override_styles/background = SubResource("StyleBoxFlat_1fulu")
 theme_override_styles/fill = SubResource("StyleBoxFlat_0rgs7")
-value = 75.0
+value = 100.0
 show_percentage = false
 
 [node name="StaminaBar" type="ProgressBar" parent="PlayerStatus/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 15)
+custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 theme = SubResource("Theme_gw63o")
 theme_override_styles/background = SubResource("StyleBoxFlat_1fulu")
 theme_override_styles/fill = SubResource("StyleBoxFlat_b4l8k")
-value = 60.0
+value = 100.0
 show_percentage = false
