@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c60shvkmqm81i"]
+[gd_scene load_steps=6 format=3 uid="uid://c60shvkmqm81i"]
 
 [ext_resource type="PackedScene" uid="uid://b6yf33nqp0moq" path="res://scenes/Player.tscn" id="1_fsogf"]
 [ext_resource type="PackedScene" uid="uid://da7xiidgi54q3" path="res://scenes/Enemy.tscn" id="2_o1dhn"]
+[ext_resource type="PackedScene" uid="uid://doocohu6ag3um" path="res://scenes/FollowCamera.tscn" id="3_squ7i"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fcm8r"]
 size = Vector3(30, 1, 30)
@@ -32,3 +33,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.69911, 0.53117, 0)
 
 [node name="Enemy" parent="." instance=ExtResource("2_o1dhn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="FollowCamera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_squ7i")]
+target = NodePath("../Player")
