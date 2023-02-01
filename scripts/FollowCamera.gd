@@ -2,11 +2,15 @@ extends Node3D
 
 @export var target: Node3D
 @export var min_pitch_deg = -30
-@export var max_pitch_deg = 30
-@export var sensitivity = 0.01
+@export var max_pitch_deg = 10
+@export var sensitivity = 0.005
+
+signal moved(angle)
 
 var mouse_delta = Vector2.ZERO
-var player_moved = false
+
+func _ready():
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _physics_process(_delta):
 	if target:
@@ -15,19 +19,16 @@ func _physics_process(_delta):
 		rotation.x -= mouse_delta.y * sensitivity
 		rotation.y -= mouse_delta.x * sensitivity
 		rotation.x = clamp(rotation.x, deg_to_rad(min_pitch_deg), deg_to_rad(max_pitch_deg))
-	if player_moved:
-		target.rotation.y = rotation.y
-		player_moved = false
+		emit_signal("moved", self.rotation.y)
 	else:
 		rotation.y -= mouse_delta.x * sensitivity
 	mouse_delta = Vector2.ZERO
 
 func _input(event):
-	if event is InputEventMouseMotion:
-		mouse_delta = event.relative
-
-func set_yaw(angle):
-	rotation.y = angle
-
-func _on_player_moved():
-	player_moved = true
+	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+		if Input.is_action_just_pressed("ui_cancel"):
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		elif event is InputEventMouseMotion:
+			mouse_delta = event.relative
+	elif Input.is_action_just_pressed("attack"):
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
