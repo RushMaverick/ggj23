@@ -4,6 +4,7 @@ extends CharacterBody3D
 @export var health = 100
 @export var stamina = 100
 @export var damage = 20
+@export var lerp_speed = 7
 
 var enemies_in_hurtbox = []
 
@@ -38,8 +39,8 @@ func _physics_process(delta):
 			$AnimationPlayer.play("Run")	
 	elif $AnimationPlayer.current_animation != "Attack":
 		$AnimationPlayer.play("Idle")
-	$Turnip.rotation.y = lerp_angle($Turnip.rotation.y, target_angle, delta * 7)
-	rotation.y = lerp_angle(rotation.y, target_yaw, delta * 7)
+	$Turnip.rotation.y = lerp_angle($Turnip.rotation.y, target_angle, delta * lerp_speed)
+	rotation.y = lerp_angle(rotation.y, target_yaw, delta * lerp_speed)
 
 func attack():
 	$AnimationPlayer.play("Attack")
