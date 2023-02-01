@@ -4,4 +4,4 @@ extends Node3D
 
 func _physics_process(_delta):
 	if target:
-d		position = target.position
+		position = target.position

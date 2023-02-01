@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://doocohu6ag3um"]
+[gd_scene load_steps=2 format=3 uid="uid://dkgo5dcwkv256"]
 
 [ext_resource type="Script" path="res://scripts/FollowCamera.gd" id="1_f5amo"]
 
