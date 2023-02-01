@@ -14,6 +14,7 @@ func _ready():
 
 func _physics_process(delta):
 	var direction = Vector3.ZERO
+	var target_angle = $Turnip.rotation.y
 	if Input.is_action_just_pressed("attack"):
 		attack()
 	if Input.is_action_pressed("forward"):
@@ -28,13 +29,14 @@ func _physics_process(delta):
 		direction = direction.normalized()
 		velocity = direction * movement_speed * delta
 		velocity = velocity.rotated(Vector3.UP, rotation.y)
-		$Turnip.rotation.y = atan2(direction.x, direction.z)
+		target_angle = atan2(direction.x, direction.z)
 		rotation.y = yaw
 		move_and_slide()
 		if $AnimationPlayer.current_animation != "Attack":
 			$AnimationPlayer.play("Run")	
 	elif $AnimationPlayer.current_animation != "Attack":
 		$AnimationPlayer.play("Idle")
+	$Turnip.rotation.y = lerp_angle($Turnip.rotation.y, target_angle, delta * 7)
 
 func attack():
 	$AnimationPlayer.play("Attack")
