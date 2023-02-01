@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://ctpcxm22ewttp"]
+[gd_scene load_steps=5 format=3 uid="uid://c60shvkmqm81i"]
 
-[ext_resource type="PackedScene" uid="uid://is8ejqknjbb2" path="res://scenes/Player.tscn" id="1_u5eqk"]
+[ext_resource type="PackedScene" uid="uid://b6yf33nqp0moq" path="res://scenes/Player.tscn" id="1_fsogf"]
+[ext_resource type="PackedScene" uid="uid://da7xiidgi54q3" path="res://scenes/Enemy.tscn" id="2_o1dhn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fcm8r"]
 size = Vector3(30, 1, 30)
@@ -24,4 +25,10 @@ mesh = SubResource("BoxMesh_eljlk")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.48668, 7.23125)
 shadow_enabled = true
 
-[node name="Player" parent="." instance=ExtResource("1_u5eqk")]
+[node name="Box" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.69911, 0.53117, 0)
+
+[node name="Player" parent="." instance=ExtResource("1_fsogf")]
+
+[node name="Enemy" parent="." instance=ExtResource("2_o1dhn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)

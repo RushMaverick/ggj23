@@ -3,17 +3,17 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://67hebc3snerl"
-path="res://.godot/imported/turnip.glb-4fdb9e9ab3f365222deeee807692cdb1.scn"
+uid="uid://ccsqijcvelnbm"
+path="res://.godot/imported/beetle.glb-dd6dce8b3a53d83af6a8c0f8d0b32d2c.scn"
 
 [deps]
 
-source_file="res://assets/turnip/turnip.glb"
-dest_files=["res://.godot/imported/turnip.glb-4fdb9e9ab3f365222deeee807692cdb1.scn"]
+source_file="res://assets/beetle/beetle.glb"
+dest_files=["res://.godot/imported/beetle.glb-dd6dce8b3a53d83af6a8c0f8d0b32d2c.scn"]
 
 [params]
 
-nodes/root_type="CharacterBody3D"
+nodes/root_type="Node3D"
 nodes/root_name="Scene Root"
 nodes/apply_root_scale=true
 nodes/root_scale=1.0

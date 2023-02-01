@@ -1,34 +1,44 @@
-[gd_scene load_steps=4 format=3 uid="uid://is8ejqknjbb2"]
+[gd_scene load_steps=5 format=3 uid="uid://b6yf33nqp0moq"]
 
-[ext_resource type="PackedScene" uid="uid://djw8046jvwpi5" path="res://assets/turnip/turnip.glb" id="1_t55ud"]
+[ext_resource type="PackedScene" uid="uid://67hebc3snerl" path="res://assets/turnip/turnip.glb" id="1_t55ud"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="2_jilhi"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gnklc"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_hhea5"]
+size = Vector3(0.846341, 0.609593, 0.799016)
 
-[node name="Player" groups=["target_to_attack"] instance=ExtResource("1_t55ud")]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qptrh"]
+
+[node name="Player" groups=["player"] instance=ExtResource("1_t55ud")]
 script = ExtResource("2_jilhi")
-
-[node name="Turnip" parent="." index="0"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Turnip" index="0"]
 bones/0/position = Vector3(0, 0.358893, 0)
-bones/1/rotation = Quaternion(-0.000658917, -0.0808968, -0.996656, 0.0115189)
-bones/2/rotation = Quaternion(-0.1818, 0.00108365, -0.0162407, 0.983201)
-bones/3/rotation = Quaternion(-0.00800958, -0.0171286, -0.988308, 0.151297)
-bones/4/rotation = Quaternion(0.310498, -0.0859973, 0.00908176, 0.946632)
-bones/5/rotation = Quaternion(-0.00120588, 0.0809031, 0.996655, 0.0114746)
-bones/6/rotation = Quaternion(-0.181814, -0.00132219, 0.0160854, 0.9832)
-bones/7/rotation = Quaternion(0.018724, 0.0130302, 0.988163, 0.151705)
-bones/8/rotation = Quaternion(0.310577, 0.147068, -0.00577515, 0.939085)
+bones/1/rotation = Quaternion(-0.000985254, -0.0579176, -0.998254, 0.0115726)
+bones/2/rotation = Quaternion(-0.130016, 0.000984339, -0.0163407, 0.991377)
+bones/3/rotation = Quaternion(0.00891549, -0.0479913, -0.987387, 0.150613)
+bones/4/rotation = Quaternion(0.237808, -0.0857023, 0.0157964, 0.967395)
+bones/5/rotation = Quaternion(-0.00153331, 0.0579239, 0.998253, 0.0115408)
+bones/6/rotation = Quaternion(-0.130029, -0.00122487, 0.0162296, 0.991377)
+bones/7/rotation = Quaternion(0.035618, 0.0439001, 0.986785, 0.151855)
+bones/8/rotation = Quaternion(0.237963, 0.148117, -0.0132634, 0.959822)
 bones/9/rotation = Quaternion(-0.0964418, 3.54704e-14, -2.29935e-08, 0.995339)
-bones/10/rotation = Quaternion(-0.319754, 1.21861e-14, -7.62354e-08, 0.947501)
-bones/11/rotation = Quaternion(-0.310098, -2.33558e-14, -7.39331e-08, 0.950705)
-bones/12/rotation = Quaternion(-0.261746, 3.68105e-14, -6.24051e-08, 0.965137)
+bones/10/rotation = Quaternion(-0.341964, 1.41774e-14, -8.15306e-08, 0.939713)
+bones/11/rotation = Quaternion(-0.287638, -1.02011e-14, -6.85783e-08, 0.957739)
+bones/12/rotation = Quaternion(-0.238699, 2.10362e-14, -5.69102e-08, 0.971094)
 
-[node name="Camera3D" type="Camera3D" parent="." index="2"]
-transform = Transform3D(1, 0, 0, 0, 0.985639, 0.168868, 0, -0.168868, 0.985639, 0, 1.14174, 1.98253)
+[node name="Hurtbox" type="Area3D" parent="Turnip" index="1"]
+monitorable = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="3"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Turnip/Hurtbox" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.393243, 0.474976)
+shape = SubResource("BoxShape3D_hhea5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0.58224, 0)
-shape = SubResource("CapsuleShape3D_gnklc")
+shape = SubResource("CapsuleShape3D_qptrh")
+
+[node name="Camera3D" type="Camera3D" parent="." index="3"]
+transform = Transform3D(-1, 1.47298e-08, -8.61729e-08, 0, 0.985703, 0.168489, 8.74228e-08, 0.168489, -0.985703, 0, 1.142, -2)
+
+[connection signal="body_entered" from="Turnip/Hurtbox" to="." method="_on_hurtbox_body_entered" flags=18]
+[connection signal="body_exited" from="Turnip/Hurtbox" to="." method="_on_hurtbox_body_exited"]

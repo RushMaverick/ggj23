@@ -1,23 +1,40 @@
 extends CharacterBody3D
 
-@export var move_speed = 1
+@export var health = 50
+@export var move_speed = 100
+@export var damage = 10
+@export var bite_distance = 100
+@export var bite_cooldown_ms = 2000
 
-var target
+var prev_bite_time = 0
+var target = null
 
-var body_pos
+func _process(_delta):
+	if target \
+		and global_position.distance_to(target.global_position) < bite_distance \
+		and Time.get_ticks_msec() - prev_bite_time > bite_cooldown_ms:
+		prev_bite_time = Time.get_ticks_msec()
+		$AnimationPlayer.play("Bite")
 
 func _physics_process(delta):
 	if target:
-		print(target.name)
 		look_at(target.position, Vector3.UP)
-		velocity = velocity.move_toward(Vector3.FORWARD * move_speed, delta)
-		#This just moves the enemy FORWARD, we need to give a new Vector3 to the enemy node based on the player's position
-	else:
-		velocity = Vector3.FORWARD * move_speed
+		velocity = -global_transform.basis.z * move_speed * delta
 	move_and_slide()
 
-func _on_area_3d_body_entered(body):
-	target = body
+func take_damage(amount):
+	health -= amount
+	if health <= 0:
+		queue_free()
 
-func _on_area_3d_body_exited(body):
-	target = null
+func _on_hurtbox_body_entered(body):
+	if body.is_in_group("player"):
+		body.take_damage(damage)
+
+func _on_vision_cone_body_entered(body):
+	if body.is_in_group("player"):
+		target = body
+
+func _on_vision_cone_body_exited(body):
+	if body.is_in_group("player"):
+		target = null
