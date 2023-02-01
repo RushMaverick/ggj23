@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://is8ejqknjbb2"]
+[gd_scene load_steps=4 format=3 uid="uid://is8ejqknjbb2"]
 
 [ext_resource type="PackedScene" uid="uid://djw8046jvwpi5" path="res://assets/turnip/turnip.glb" id="1_t55ud"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="2_jilhi"]
 
-[node name="Player" instance=ExtResource("1_t55ud")]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gnklc"]
+
+[node name="Player" groups=["target_to_attack"] instance=ExtResource("1_t55ud")]
 script = ExtResource("2_jilhi")
 
 [node name="Turnip" parent="." index="0"]
@@ -26,3 +28,7 @@ bones/12/rotation = Quaternion(-0.261746, 3.68105e-14, -6.24051e-08, 0.965137)
 
 [node name="Camera3D" type="Camera3D" parent="." index="2"]
 transform = Transform3D(1, 0, 0, 0, 0.985639, 0.168868, 0, -0.168868, 0.985639, 0, 1.14174, 1.98253)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="3"]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0.58224, 0)
+shape = SubResource("CapsuleShape3D_gnklc")

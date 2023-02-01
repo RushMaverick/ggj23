@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dm3dhcu3hx1l"]
 
-[ext_resource type="PackedScene" uid="uid://dm6gbs724pr03" path="res://scenes/Enemy.tscn" id="1_6asst"]
+[ext_resource type="PackedScene" uid="uid://dpwswxts5vxv0" path="res://scenes/Enemy.tscn" id="1_6asst"]
 [ext_resource type="Script" path="res://scripts/FollowCamera.gd" id="3_47tmd"]
 [ext_resource type="PackedScene" uid="uid://is8ejqknjbb2" path="res://scenes/Player.tscn" id="3_widq0"]
 

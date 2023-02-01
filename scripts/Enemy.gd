@@ -1,17 +1,23 @@
 extends CharacterBody3D
 
-@export var move_speed = 20
+@export var move_speed = 1
 
-@onready var cyl = $ShapeCast3D
+var target
+
+var body_pos
 
 func _physics_process(delta):
-	velocity = Vector3.FORWARD * move_speed * delta
-	velocity = velocity.rotated(Vector3.UP, rotation.y)
+	if target:
+		print(target.name)
+		look_at(target.position, Vector3.UP)
+		velocity = velocity.move_toward(Vector3.FORWARD * move_speed, delta)
+		#This just moves the enemy FORWARD, we need to give a new Vector3 to the enemy node based on the player's position
+	else:
+		velocity = Vector3.FORWARD * move_speed
 	move_and_slide()
 
-func _process(_delta):
-	for	body in get_tree().get_nodes_in_group("target_to_attack"):
-		var _body_pos = body.global_transform.origin
-
 func _on_area_3d_body_entered(body):
-	print(body)
+	target = body
+
+func _on_area_3d_body_exited(body):
+	target = null
