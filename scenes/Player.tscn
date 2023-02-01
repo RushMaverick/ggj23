@@ -37,8 +37,5 @@ shape = SubResource("BoxShape3D_hhea5")
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0.58224, 0)
 shape = SubResource("CapsuleShape3D_qptrh")
 
-[node name="Camera3D" type="Camera3D" parent="." index="3"]
-transform = Transform3D(-1, 1.47298e-08, -8.61729e-08, 0, 0.985703, 0.168489, 8.74228e-08, 0.168489, -0.985703, 0, 1.142, -2)
-
 [connection signal="body_entered" from="Turnip/Hurtbox" to="." method="_on_hurtbox_body_entered" flags=18]
 [connection signal="body_exited" from="Turnip/Hurtbox" to="." method="_on_hurtbox_body_exited"]
