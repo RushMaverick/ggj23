@@ -10,6 +10,7 @@ signal stamina_changed(new_stamina)
 @export var damage = 15
 @export var hit_stamina_deduction = 10
 @export var hit_cooldown_ms = 400
+@export var lerp_speed = 7
 
 var health = max_health
 var stamina = max_stamina
@@ -17,10 +18,12 @@ var stamina = max_stamina
 var enemies_in_hurtbox = []
 var prev_hit_time = 0
 var yaw
+var target_yaw
 
 func _ready():
 	yaw = rotation.y
 	$AnimationPlayer.play("Idle")
+	target_yaw = rotation.y
 
 func _process(delta):
 	stamina += stamina_recovery_rate * delta
@@ -29,6 +32,7 @@ func _process(delta):
 
 func _physics_process(delta):
 	var direction = Vector3.ZERO
+	var target_angle = $Turnip.rotation.y
 	if Input.is_action_just_pressed("attack"):
 		attack()
 	if Input.is_action_pressed("forward"):
@@ -43,13 +47,15 @@ func _physics_process(delta):
 		direction = direction.normalized()
 		velocity = direction * movement_speed * delta
 		velocity = velocity.rotated(Vector3.UP, rotation.y)
-		$Turnip.rotation.y = atan2(direction.x, direction.z)
-		rotation.y = yaw
+		target_angle = atan2(direction.x, direction.z)
+		target_yaw = yaw
 		move_and_slide()
 		if $AnimationPlayer.current_animation != "Attack":
 			$AnimationPlayer.play("Run")	
 	elif $AnimationPlayer.current_animation != "Attack":
 		$AnimationPlayer.play("Idle")
+	$Turnip.rotation.y = lerp_angle($Turnip.rotation.y, target_angle, delta * lerp_speed)
+	rotation.y = lerp_angle(rotation.y, target_yaw, delta * lerp_speed)
 
 func attack():
 	if Time.get_ticks_msec() - prev_hit_time > hit_cooldown_ms \
