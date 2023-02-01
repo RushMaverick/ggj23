@@ -1,7 +1,9 @@
 extends CharacterBody3D
 
+signal moved
+
 @export var movement_speed = 150
-@export var sensitivity = 0.1
+@export var sensitivity = 0.01
 @export var min_pitch_deg = -30
 @export var max_pitch_deg = 30
 
@@ -31,11 +33,15 @@ func _physics_process(delta):
 		velocity = direction * movement_speed * delta
 		velocity = velocity.rotated(Vector3.UP, rotation.y)
 		$Turnip.rotation.y = atan2(direction.x, direction.z)
+		if mouse_delta != Vector2.ZERO:
+			rotation.y -= mouse_delta.x * sensitivity
+		emit_signal("moved")
 		move_and_slide()
 		if $AnimationPlayer.current_animation != "Attack":
 			$AnimationPlayer.play("Run")	
 		elif $AnimationPlayer.current_animation != "Attack":
 			$AnimationPlayer.play("Idle")
+	mouse_delta = Vector2.ZERO
 
 func attack():
 	for enemy in enemies_in_hurtbox:
@@ -53,3 +59,7 @@ func _on_hurtbox_body_entered(body):
 func _on_hurtbox_body_exited(body):
 	if body in enemies_in_hurtbox:
 		enemies_in_hurtbox.erase(body)
+
+func _input(event):
+	if event is InputEventMouseMotion:
+		mouse_delta = event.relative
