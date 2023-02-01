@@ -8,9 +8,11 @@ extends CharacterBody3D
 var enemies_in_hurtbox = []
 
 var yaw
+var target_yaw
 
 func _ready():
 	$AnimationPlayer.play("Idle")
+	target_yaw = rotation.y
 
 func _physics_process(delta):
 	var direction = Vector3.ZERO
@@ -30,13 +32,14 @@ func _physics_process(delta):
 		velocity = direction * movement_speed * delta
 		velocity = velocity.rotated(Vector3.UP, rotation.y)
 		target_angle = atan2(direction.x, direction.z)
-		rotation.y = yaw
+		target_yaw = yaw
 		move_and_slide()
 		if $AnimationPlayer.current_animation != "Attack":
 			$AnimationPlayer.play("Run")	
 	elif $AnimationPlayer.current_animation != "Attack":
 		$AnimationPlayer.play("Idle")
 	$Turnip.rotation.y = lerp_angle($Turnip.rotation.y, target_angle, delta * 7)
+	rotation.y = lerp_angle(rotation.y, target_yaw, delta * 7)
 
 func attack():
 	$AnimationPlayer.play("Attack")
