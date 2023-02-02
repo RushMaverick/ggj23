@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6yf33nqp0moq"]
+[gd_scene load_steps=7 format=3 uid="uid://b6yf33nqp0moq"]
 
 [ext_resource type="PackedScene" uid="uid://67hebc3snerl" path="res://assets/turnip/turnip.glb" id="1_t55ud"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="2_jilhi"]
@@ -8,6 +8,9 @@
 size = Vector3(0.846341, 0.609593, 0.799016)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qptrh"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_pj2uj"]
+points = PackedVector3Array(0, 0, 0, 4, 1, 4, -4, 1, 4, -4, 0, 4, 4, 0, 4, 0, 1, 0)
 
 [node name="Player" groups=["player"] instance=ExtResource("1_t55ud")]
 script = ExtResource("2_jilhi")
@@ -40,7 +43,16 @@ shape = SubResource("BoxShape3D_hhea5")
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0.58224, 0)
 shape = SubResource("CapsuleShape3D_qptrh")
 
+[node name="TargetRange" type="Area3D" parent="." index="4"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="TargetRangeCollisionShape" type="CollisionShape3D" parent="TargetRange" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0106925, -0.374029)
+shape = SubResource("ConvexPolygonShape3D_pj2uj")
+
 [connection signal="health_changed" from="." to="HUD" method="_on_player_health_changed"]
 [connection signal="stamina_changed" from="." to="HUD" method="_on_player_stamina_changed"]
 [connection signal="body_entered" from="Turnip/Hurtbox" to="." method="_on_hurtbox_body_entered" flags=18]
 [connection signal="body_exited" from="Turnip/Hurtbox" to="." method="_on_hurtbox_body_exited"]
+[connection signal="body_entered" from="TargetRange" to="." method="_on_target_range_body_entered"]
+[connection signal="body_exited" from="TargetRange" to="." method="_on_target_range_body_exited"]

@@ -18,6 +18,7 @@ var health = max_health
 var stamina = max_stamina
 
 var enemies_in_hurtbox = []
+var enemies_in_range = []
 var prev_hit_time = 0
 var yaw
 var target_yaw
@@ -70,7 +71,7 @@ func _physics_process(delta):
 		rotation.y = atan2(target_enemy_direction.x, target_enemy_direction.z)
 
 func find_target_enemy():
-	var new_target = enemies_in_hurtbox.front()
+	var new_target = enemies_in_range.front()
 	if new_target:
 		target_enemy = new_target
 		emit_signal("enemy_target_set")
@@ -107,3 +108,11 @@ func _on_hurtbox_body_exited(body):
 
 func _on_follow_camera_moved(angle):
 	yaw = angle
+
+func _on_target_range_body_entered(body):
+	if body.is_in_group("enemy"):
+		enemies_in_range.append(body)
+
+func _on_target_range_body_exited(body):
+	if body in enemies_in_range:
+		enemies_in_range.erase(body)
