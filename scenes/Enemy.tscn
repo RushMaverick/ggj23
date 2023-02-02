@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://da7xiidgi54q3"]
+[gd_scene load_steps=12 format=3 uid="uid://da7xiidgi54q3"]
 
 [ext_resource type="Script" path="res://scripts/Enemy.gd" id="1_rcc5m"]
 [ext_resource type="Texture2D" uid="uid://fe1mdlqo8whm" path="res://assets/beetle/beetle_6.png" id="2_r8hty"]
@@ -246,8 +246,6 @@ _data = {
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yy733"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_yfuxw"]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_qtb1w"]
 size = Vector3(0.467776, 0.262788, 0.367997)
 
@@ -344,9 +342,21 @@ shape = SubResource("CapsuleShape3D_yy733")
 
 [node name="VisionCone" type="Area3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="VisionCone"]
-transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 0, 0.5, -1.5)
-shape = SubResource("CylinderShape3D_yfuxw")
+[node name="up" type="CollisionPolygon3D" parent="VisionCone"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+polygon = PackedVector2Array(0, 0, 30, 30, 30, -30)
+
+[node name="down" type="CollisionPolygon3D" parent="VisionCone"]
+transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 0, 0, 0)
+polygon = PackedVector2Array(0, 0, 30, 30, 30, -30)
+
+[node name="right" type="CollisionPolygon3D" parent="VisionCone"]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 0, 0, 0)
+polygon = PackedVector2Array(0, 0, 30, 30, 30, -30)
+
+[node name="left" type="CollisionPolygon3D" parent="VisionCone"]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 0, 0, 0)
+polygon = PackedVector2Array(0, 0, 30, 30, 30, -30)
 
 [node name="Hurtbox" type="Area3D" parent="."]
 process_mode = 4
