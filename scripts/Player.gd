@@ -7,7 +7,7 @@ signal enemy_target_unset
 
 @export var max_health = 100
 @export var max_stamina = 100
-@export var stamina_recovery_rate = 5
+@export var stamina_recovery_rate = 10
 @export var movement_speed = 300
 @export var damage = 15
 @export var hit_stamina_deduction = 5
