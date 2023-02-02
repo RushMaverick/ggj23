@@ -1,11 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://c60shvkmqm81i"]
+[gd_scene load_steps=6 format=3 uid="uid://c60shvkmqm81i"]
 
 [ext_resource type="PackedScene" uid="uid://b6yf33nqp0moq" path="res://scenes/Player.tscn" id="1_fsogf"]
-[ext_resource type="PackedScene" uid="uid://dvbpabmk7fsvt" path="res://scenes/World.tscn" id="1_nlty7"]
+[ext_resource type="PackedScene" uid="uid://0c0yrf5c5ew5" path="res://scenes/World.tscn" id="1_nlty7"]
 [ext_resource type="PackedScene" uid="uid://da7xiidgi54q3" path="res://scenes/Enemy.tscn" id="2_o1dhn"]
 [ext_resource type="PackedScene" uid="uid://dkgo5dcwkv256" path="res://scenes/FollowCamera.tscn" id="3_squ7i"]
 
+[sub_resource type="Environment" id="Environment_yq005"]
+background_mode = 1
+background_color = Color(0.811765, 0.8, 0.772549, 1)
+ssao_enabled = true
+ssil_enabled = true
+volumetric_fog_enabled = true
+
 [node name="Node" type="Node"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_yq005")
 
 [node name="World" parent="." instance=ExtResource("1_nlty7")]
 
