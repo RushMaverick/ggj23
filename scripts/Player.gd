@@ -13,6 +13,7 @@ signal enemy_target_unset
 @export var hit_stamina_deduction = 10
 @export var hit_cooldown_ms = 400
 @export var lerp_speed = 7
+@export var gravity = 300
 
 var health = max_health
 var stamina = max_stamina
@@ -50,7 +51,7 @@ func _physics_process(delta):
 		direction.x -= 1
 	if Input.is_action_pressed("right"):
 		direction.x += 1
-	if direction != Vector3.ZERO:
+	if direction != Vector3.ZERO and is_on_floor():
 		direction = direction.normalized()
 		velocity = direction * movement_speed * delta
 		velocity = velocity.rotated(Vector3.UP, rotation.y)
@@ -61,12 +62,16 @@ func _physics_process(delta):
 			$AnimationPlayer.play("Run")	
 	elif $AnimationPlayer.current_animation != "Attack":
 		$AnimationPlayer.play("Idle")
+	if !is_on_floor():
+		velocity.y -= gravity * delta
+		move_and_slide()
 	$Turnip.rotation.y = lerp_angle($Turnip.rotation.y, target_angle, delta * lerp_speed)
 	if target_enemy:
 		var target_enemy_direction = global_position - target_enemy.global_position
 		target_enemy_direction.normalized()
 		target_yaw = atan2(target_enemy_direction.x, target_enemy_direction.z)
 	rotation.y = lerp_angle(rotation.y, target_yaw, delta * lerp_speed)
+	
 
 func find_target_enemy():
 	var new_target = enemies_in_range.front()

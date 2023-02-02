@@ -13,6 +13,7 @@ size = Vector3(0.846341, 0.609593, 0.799016)
 points = PackedVector3Array(0, 0, 0, 4, 1, 4, -4, 1, 4, -4, 0, 4, 4, 0, 4, 0, 1, 0)
 
 [node name="Player" groups=["player"] instance=ExtResource("1_t55ud")]
+floor_block_on_wall = false
 script = ExtResource("2_jilhi")
 
 [node name="HUD" parent="." index="0" instance=ExtResource("3_x7etn")]

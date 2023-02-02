@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c60shvkmqm81i"]
 
 [ext_resource type="PackedScene" uid="uid://b6yf33nqp0moq" path="res://scenes/Player.tscn" id="1_fsogf"]
-[ext_resource type="PackedScene" uid="uid://0c0yrf5c5ew5" path="res://scenes/World.tscn" id="1_nlty7"]
+[ext_resource type="PackedScene" uid="uid://dvbpabmk7fsvt" path="res://scenes/World.tscn" id="1_nlty7"]
 [ext_resource type="PackedScene" uid="uid://da7xiidgi54q3" path="res://scenes/Enemy.tscn" id="2_o1dhn"]
 [ext_resource type="PackedScene" uid="uid://dkgo5dcwkv256" path="res://scenes/FollowCamera.tscn" id="3_squ7i"]
 
@@ -14,7 +14,7 @@
 [node name="Player" parent="." instance=ExtResource("1_fsogf")]
 
 [node name="Enemy" parent="." instance=ExtResource("2_o1dhn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.06488, 5)
 
 [node name="FollowCamera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_squ7i")]
 target = NodePath("../Player")

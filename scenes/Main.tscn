@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://nn5sj1sinbna"]
+
+[ext_resource type="PackedScene" uid="uid://dvbpabmk7fsvt" path="res://scenes/World.tscn" id="1_hiqbr"]
+[ext_resource type="PackedScene" uid="uid://b6yf33nqp0moq" path="res://scenes/Player.tscn" id="2_jotrt"]
+[ext_resource type="PackedScene" uid="uid://dkgo5dcwkv256" path="res://scenes/FollowCamera.tscn" id="3_shxn7"]
+
+[node name="Main" type="Node3D"]
+
+[node name="World" parent="." instance=ExtResource("1_hiqbr")]
+
+[node name="Player" parent="." instance=ExtResource("2_jotrt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.27688, 0)
+
+[node name="FollowCamera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_shxn7")]
+target = NodePath("../Player")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.915255, -2.08891e-08, 0.402874, -0.218323, 0.840434, 0.495989, -0.33859, -0.541914, 0.769212, 26.4466, 12.8773, 15.6883)
+
+[connection signal="moved" from="FollowCamera" to="Player" method="_on_follow_camera_moved"]
