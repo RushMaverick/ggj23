@@ -73,6 +73,12 @@ func _physics_process(delta):
 func find_target_enemy():
 	var new_target = enemies_in_range.front()
 	if new_target:
+		var prev_distance = global_position - new_target.global_position
+		for enemy in enemies_in_range:
+			var distance = global_position - enemy.global_position
+			if distance < prev_distance:
+				new_target = enemy
+				prev_distance = distance
 		target_enemy = new_target
 		emit_signal("enemy_target_set")
 
