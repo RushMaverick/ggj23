@@ -5,10 +5,10 @@ extends CharacterBody3D
 @export var damage = 10
 @export var bite_distance = 100
 @export var bite_cooldown_ms = 2000
-@export var gravity = 300
+@export var weight = 300
 
 var corpse_scene = preload("res://scenes/EnemyCorpse.tscn")
-
+var falling_momentum = 0
 var prev_bite_time = 0
 var target = null
 
@@ -26,7 +26,7 @@ func _physics_process(delta):
 		rotation.x = rot_x
 		velocity = -global_transform.basis.z * move_speed * delta
 	if !is_on_floor():
-		velocity.y -= gravity * delta
+		fall(delta)
 	move_and_slide()
 
 func take_damage(amount):
@@ -37,6 +37,11 @@ func take_damage(amount):
 		corpse.rotation = rotation
 		get_parent().add_child(corpse)
 		queue_free()
+
+func fall(delta):
+	falling_momentum += 0.05
+	velocity.y -= weight * falling_momentum * delta
+	move_and_slide()
 
 func _on_hurtbox_body_entered(body):
 	if body.is_in_group("player"):

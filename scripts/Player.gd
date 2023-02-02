@@ -13,7 +13,7 @@ signal enemy_target_unset
 @export var hit_stamina_deduction = 5
 @export var hit_cooldown_ms = 400
 @export var lerp_speed = 10
-@export var gravity = 300
+@export var weight = 300
 
 var health = max_health
 var stamina = max_stamina
@@ -25,6 +25,7 @@ var yaw
 var target_yaw
 var target_enemy = null
 var is_rolling: bool
+var falling_momentum = 0
 
 func _ready():
 	yaw = rotation.y
@@ -65,8 +66,9 @@ func _physics_process(delta):
 	elif $AnimationPlayer.current_animation not in ["Attack", "Roll"]:
 		$AnimationPlayer.play("Idle")
 	if !is_on_floor():
-		velocity.y -= gravity * delta
-		move_and_slide()
+		fall(delta)
+	else:
+		falling_momentum = 0
 	if !target_enemy:
 		$Turnip.rotation.y = lerp_angle($Turnip.rotation.y, target_angle, delta * lerp_speed)
 	else:
@@ -77,7 +79,6 @@ func _physics_process(delta):
 		target_enemy_direction.normalized()
 		target_yaw = atan2(target_enemy_direction.x, target_enemy_direction.z)
 	rotation.y = lerp_angle(rotation.y, target_yaw, delta * lerp_speed)
-	
 
 func find_target_enemy():
 	var new_target = enemies_in_range.front()
@@ -112,6 +113,11 @@ func take_damage(amount):
 	emit_signal("health_changed", health)
 	if health <= 0:
 		queue_free()
+
+func fall(delta):
+	falling_momentum += 0.05
+	velocity.y -= weight * falling_momentum * delta
+	move_and_slide()
 
 func _on_hurtbox_body_entered(body):
 	if (body.is_in_group("enemy")):
