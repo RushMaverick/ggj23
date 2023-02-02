@@ -1,33 +1,15 @@
 [gd_scene load_steps=6 format=3 uid="uid://c60shvkmqm81i"]
 
 [ext_resource type="PackedScene" uid="uid://b6yf33nqp0moq" path="res://scenes/Player.tscn" id="1_fsogf"]
+[ext_resource type="PackedScene" uid="uid://0c0yrf5c5ew5" path="res://scenes/World.tscn" id="1_nlty7"]
 [ext_resource type="PackedScene" uid="uid://da7xiidgi54q3" path="res://scenes/Enemy.tscn" id="2_o1dhn"]
 [ext_resource type="PackedScene" uid="uid://dkgo5dcwkv256" path="res://scenes/FollowCamera.tscn" id="3_squ7i"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_fcm8r"]
-size = Vector3(30, 1, 30)
-
-[sub_resource type="BoxMesh" id="BoxMesh_eljlk"]
-size = Vector3(30, 1, 30)
+[sub_resource type="BoxShape3D" id="BoxShape3D_dnpoy"]
 
 [node name="Node" type="Node"]
 
-[node name="Ground" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, -0.507644, 2.08165e-12)
-constant_linear_velocity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
-shape = SubResource("BoxShape3D_fcm8r")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
-mesh = SubResource("BoxMesh_eljlk")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.48668, 7.23125)
-shadow_enabled = true
-
-[node name="Box" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.69911, 0.53117, 0)
+[node name="World" parent="." instance=ExtResource("1_nlty7")]
 
 [node name="Player" parent="." instance=ExtResource("1_fsogf")]
 
@@ -36,5 +18,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
 
 [node name="FollowCamera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_squ7i")]
 target = NodePath("../Player")
+
+[node name="TestBlock" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.91219, 1.59488, 1.93455)
+
+[node name="Box" type="CSGBox3D" parent="TestBlock"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestBlock"]
+shape = SubResource("BoxShape3D_dnpoy")
 
 [connection signal="moved" from="FollowCamera" to="Player" method="_on_follow_camera_moved"]
