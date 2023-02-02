@@ -20,8 +20,10 @@ func _process(_delta):
 		$AnimationPlayer.play("Bite")
 
 func _physics_process(delta):
+	var rot_x = rotation.x
 	if target:
 		look_at(target.position, Vector3.UP)
+		rotation.x = rot_x
 		velocity = -global_transform.basis.z * move_speed * delta
 	if !is_on_floor():
 		velocity.y -= gravity * delta
