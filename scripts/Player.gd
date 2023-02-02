@@ -118,6 +118,8 @@ func _on_hurtbox_body_entered(body):
 		enemies_in_hurtbox.append(body)
 
 func _on_hurtbox_body_exited(body):
+	if target_enemy == body:
+		unset_target_enemy()
 	if body in enemies_in_hurtbox:
 		enemies_in_hurtbox.erase(body)
 
