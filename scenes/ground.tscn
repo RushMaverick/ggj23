@@ -1,11 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c60shvkmqm81i"]
+[gd_scene load_steps=5 format=3 uid="uid://c60shvkmqm81i"]
 
 [ext_resource type="PackedScene" uid="uid://b6yf33nqp0moq" path="res://scenes/Player.tscn" id="1_fsogf"]
-[ext_resource type="PackedScene" uid="uid://dvbpabmk7fsvt" path="res://scenes/World.tscn" id="1_nlty7"]
+[ext_resource type="PackedScene" uid="uid://0c0yrf5c5ew5" path="res://scenes/World.tscn" id="1_nlty7"]
 [ext_resource type="PackedScene" uid="uid://da7xiidgi54q3" path="res://scenes/Enemy.tscn" id="2_o1dhn"]
 [ext_resource type="PackedScene" uid="uid://dkgo5dcwkv256" path="res://scenes/FollowCamera.tscn" id="3_squ7i"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_dnpoy"]
 
 [node name="Node" type="Node"]
 
@@ -18,14 +16,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.06488, 5)
 
 [node name="FollowCamera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_squ7i")]
 target = NodePath("../Player")
-
-[node name="TestBlock" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.91219, 1.59488, 1.93455)
-
-[node name="Box" type="CSGBox3D" parent="TestBlock"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TestBlock"]
-shape = SubResource("BoxShape3D_dnpoy")
 
 [connection signal="enemy_target_set" from="Player" to="FollowCamera" method="_on_player_enemy_target_set"]
 [connection signal="enemy_target_unset" from="Player" to="FollowCamera" method="_on_player_enemy_target_unset"]

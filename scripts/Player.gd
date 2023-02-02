@@ -8,11 +8,11 @@ signal enemy_target_unset
 @export var max_health = 100
 @export var max_stamina = 100
 @export var stamina_recovery_rate = 5
-@export var movement_speed = 150
+@export var movement_speed = 300
 @export var damage = 15
-@export var hit_stamina_deduction = 10
+@export var hit_stamina_deduction = 5
 @export var hit_cooldown_ms = 400
-@export var lerp_speed = 7
+@export var lerp_speed = 10
 @export var gravity = 300
 
 var health = max_health
@@ -24,10 +24,10 @@ var prev_hit_time = 0
 var yaw
 var target_yaw
 var target_enemy = null
+var is_rolling: bool
 
 func _ready():
 	yaw = rotation.y
-	$AnimationPlayer.play("Idle")
 	target_yaw = rotation.y
 
 func _process(delta):
@@ -41,8 +41,10 @@ func _physics_process(delta):
 		find_target_enemy()
 	elif target_enemy and Input.is_action_just_released("lock_enemy"):
 		unset_target_enemy()
-	if Input.is_action_just_pressed("attack"):
+	if Input.is_action_just_pressed("attack") && not is_rolling:
 		attack()
+	elif Input.is_action_just_pressed("roll") && not is_rolling:
+		$AnimationPlayer.play("Roll")
 	if Input.is_action_pressed("forward"):
 		direction.z -= 1
 	if Input.is_action_pressed("back"):
@@ -58,9 +60,9 @@ func _physics_process(delta):
 		target_angle = atan2(direction.x, direction.z)
 		target_yaw = yaw
 		move_and_slide()
-		if $AnimationPlayer.current_animation != "Attack":
+		if $AnimationPlayer.current_animation not in ["Attack", "Roll"]:
 			$AnimationPlayer.play("Run")	
-	elif $AnimationPlayer.current_animation != "Attack":
+	elif $AnimationPlayer.current_animation not in ["Attack", "Roll"]:
 		$AnimationPlayer.play("Idle")
 	if !is_on_floor():
 		velocity.y -= gravity * delta
@@ -101,6 +103,7 @@ func attack():
 			enemy.take_damage(damage)
 
 func take_damage(amount):
+	if is_rolling: return
 	health = clamp(health - amount, 0, max_health)
 	emit_signal("health_changed", health)
 	if health <= 0:
@@ -124,3 +127,9 @@ func _on_target_range_body_entered(body):
 func _on_target_range_body_exited(body):
 	if body in enemies_in_range:
 		enemies_in_range.erase(body)
+
+func _on_animation_player_animation_started(anim_name):
+	if anim_name == "Roll": is_rolling = true
+
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name == "Roll": is_rolling = false

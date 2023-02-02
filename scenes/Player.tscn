@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://b6yf33nqp0moq"]
 
-[ext_resource type="PackedScene" uid="uid://67hebc3snerl" path="res://assets/turnip/turnip.glb" id="1_t55ud"]
+[ext_resource type="PackedScene" uid="uid://2v1t3pxydbpi" path="res://assets/turnip/turnip.glb" id="1_t55ud"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="2_jilhi"]
 [ext_resource type="PackedScene" uid="uid://c4m2cl0eidren" path="res://scenes/HUD.tscn" id="3_x7etn"]
 
@@ -20,6 +20,7 @@ script = ExtResource("2_jilhi")
 
 [node name="Skeleton3D" parent="Turnip" index="0"]
 bones/0/position = Vector3(0, 0.358893, 0)
+bones/0/rotation = Quaternion(-2.98023e-08, 1.19209e-07, 2.11758e-22, 1)
 bones/1/rotation = Quaternion(-0.000985254, -0.0579176, -0.998254, 0.0115726)
 bones/2/rotation = Quaternion(-0.130016, 0.000984339, -0.0163407, 0.991377)
 bones/3/rotation = Quaternion(0.00891549, -0.0479913, -0.987387, 0.150613)
@@ -27,7 +28,7 @@ bones/4/rotation = Quaternion(0.237808, -0.0857023, 0.0157964, 0.967395)
 bones/5/rotation = Quaternion(-0.00153331, 0.0579239, 0.998253, 0.0115408)
 bones/6/rotation = Quaternion(-0.130029, -0.00122487, 0.0162296, 0.991377)
 bones/7/rotation = Quaternion(0.035618, 0.0439001, 0.986785, 0.151855)
-bones/8/rotation = Quaternion(0.237963, 0.148117, -0.0132634, 0.959822)
+bones/8/rotation = Quaternion(0.237963, 0.148117, -0.0132634, 0.959823)
 bones/9/rotation = Quaternion(-0.0964418, 3.54704e-14, -2.29935e-08, 0.995339)
 bones/10/rotation = Quaternion(-0.341964, 1.41774e-14, -8.15306e-08, 0.939713)
 bones/11/rotation = Quaternion(-0.287638, -1.02011e-14, -6.85783e-08, 0.957739)
@@ -39,6 +40,9 @@ monitorable = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Turnip/Hurtbox" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.393243, 0.474976)
 shape = SubResource("BoxShape3D_hhea5")
+
+[node name="AnimationPlayer" parent="." index="2"]
+autoplay = "Idle"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="3"]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0.58224, 0)
@@ -55,5 +59,7 @@ shape = SubResource("ConvexPolygonShape3D_pj2uj")
 [connection signal="stamina_changed" from="." to="HUD" method="_on_player_stamina_changed"]
 [connection signal="body_entered" from="Turnip/Hurtbox" to="." method="_on_hurtbox_body_entered" flags=18]
 [connection signal="body_exited" from="Turnip/Hurtbox" to="." method="_on_hurtbox_body_exited"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="animation_started" from="AnimationPlayer" to="." method="_on_animation_player_animation_started"]
 [connection signal="body_entered" from="TargetRange" to="." method="_on_target_range_body_entered"]
 [connection signal="body_exited" from="TargetRange" to="." method="_on_target_range_body_exited"]

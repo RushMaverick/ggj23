@@ -3,17 +3,17 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://2v1t3pxydbpi"
-path="res://.godot/imported/turnip.glb-4fdb9e9ab3f365222deeee807692cdb1.scn"
+uid="uid://dr1i4a55j4wsf"
+path="res://.godot/imported/mushroomred.glb-03535249d466cb85205ad243ec335ba8.scn"
 
 [deps]
 
-source_file="res://assets/turnip/turnip.glb"
-dest_files=["res://.godot/imported/turnip.glb-4fdb9e9ab3f365222deeee807692cdb1.scn"]
+source_file="res://assets/mushroomred.glb"
+dest_files=["res://.godot/imported/mushroomred.glb-03535249d466cb85205ad243ec335ba8.scn"]
 
 [params]
 
-nodes/root_type="CharacterBody3D"
+nodes/root_type="Node3D"
 nodes/root_name="Scene Root"
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
