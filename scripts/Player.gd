@@ -2,6 +2,8 @@ extends CharacterBody3D
 
 signal health_changed(new_health)
 signal stamina_changed(new_stamina)
+signal enemy_target_set
+signal enemy_target_unset
 
 @export var max_health = 100
 @export var max_stamina = 100
@@ -19,6 +21,7 @@ var enemies_in_hurtbox = []
 var prev_hit_time = 0
 var yaw
 var target_yaw
+var target_enemy = null
 
 func _ready():
 	yaw = rotation.y
@@ -33,6 +36,10 @@ func _process(delta):
 func _physics_process(delta):
 	var direction = Vector3.ZERO
 	var target_angle = $Turnip.rotation.y
+	if !target_enemy and Input.is_action_pressed("lock_enemy"):
+		find_target_enemy()
+	elif target_enemy and Input.is_action_just_released("lock_enemy"):
+		unset_target_enemy()
 	if Input.is_action_just_pressed("attack"):
 		attack()
 	if Input.is_action_pressed("forward"):
@@ -55,7 +62,22 @@ func _physics_process(delta):
 	elif $AnimationPlayer.current_animation != "Attack":
 		$AnimationPlayer.play("Idle")
 	$Turnip.rotation.y = lerp_angle($Turnip.rotation.y, target_angle, delta * lerp_speed)
-	rotation.y = lerp_angle(rotation.y, target_yaw, delta * lerp_speed)
+	if !target_enemy:
+		rotation.y = lerp_angle(rotation.y, target_yaw, delta * lerp_speed)
+	else:
+		var target_enemy_direction = global_position - target_enemy.global_position
+		target_enemy_direction.normalized()
+		rotation.y = atan2(target_enemy_direction.x, target_enemy_direction.z)
+
+func find_target_enemy():
+	var new_target = enemies_in_hurtbox.front()
+	if new_target:
+		target_enemy = new_target
+		emit_signal("enemy_target_set")
+
+func unset_target_enemy():
+	target_enemy = null
+	emit_signal("enemy_target_unset")
 
 func attack():
 	if Time.get_ticks_msec() - prev_hit_time > hit_cooldown_ms \

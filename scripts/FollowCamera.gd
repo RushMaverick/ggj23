@@ -7,6 +7,9 @@ extends Node3D
 
 signal moved(angle)
 
+enum CAMERA_MODE {FOLLOW, TARGET}
+var camera_mode = CAMERA_MODE.FOLLOW
+
 var mouse_delta = Vector2.ZERO
 
 func _ready():
@@ -15,13 +18,16 @@ func _ready():
 func _physics_process(_delta):
 	if target:
 		position = target.position
-	if mouse_delta != Vector2.ZERO:
-		rotation.x -= mouse_delta.y * sensitivity
-		rotation.y -= mouse_delta.x * sensitivity
-		rotation.x = clamp(rotation.x, deg_to_rad(min_pitch_deg), deg_to_rad(max_pitch_deg))
-		emit_signal("moved", self.rotation.y)
+	if camera_mode == CAMERA_MODE.FOLLOW:
+		if mouse_delta != Vector2.ZERO:
+			rotation.x -= mouse_delta.y * sensitivity
+			rotation.y -= mouse_delta.x * sensitivity
+			rotation.x = clamp(rotation.x, deg_to_rad(min_pitch_deg), deg_to_rad(max_pitch_deg))
+			emit_signal("moved", self.rotation.y)
+		else:
+			rotation.y -= mouse_delta.x * sensitivity
 	else:
-		rotation.y -= mouse_delta.x * sensitivity
+		rotation.y = target.rotation.y
 	mouse_delta = Vector2.ZERO
 
 func _input(event):
@@ -32,3 +38,9 @@ func _input(event):
 			mouse_delta = event.relative
 	elif Input.is_action_just_pressed("attack"):
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+func _on_player_enemy_target_set():
+	camera_mode = CAMERA_MODE.TARGET
+
+func _on_player_enemy_target_unset():
+	camera_mode = CAMERA_MODE.FOLLOW
