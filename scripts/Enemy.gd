@@ -5,6 +5,7 @@ extends CharacterBody3D
 @export var damage = 10
 @export var bite_distance = 100
 @export var bite_cooldown_ms = 2000
+@export var gravity = 300
 
 var corpse_scene = preload("res://scenes/EnemyCorpse.tscn")
 
@@ -22,6 +23,8 @@ func _physics_process(delta):
 	if target:
 		look_at(target.position, Vector3.UP)
 		velocity = -global_transform.basis.z * move_speed * delta
+	if !is_on_floor():
+		velocity.y -= gravity * delta
 	move_and_slide()
 
 func take_damage(amount):
