@@ -105,7 +105,7 @@ func attack():
 		emit_signal("stamina_changed", stamina)
 		$AnimationPlayer.play("Attack")
 		for enemy in enemies_in_hurtbox:
-			enemy.take_damage(damage)
+			if enemy: enemy.take_damage(damage)
 
 func take_damage(amount):
 	if is_rolling: return
