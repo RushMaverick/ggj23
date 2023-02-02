@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://nn5sj1sinbna"]
 
 [ext_resource type="PackedScene" uid="uid://da7xiidgi54q3" path="res://scenes/Enemy.tscn" id="1_6mc5e"]
-[ext_resource type="PackedScene" uid="uid://0c0yrf5c5ew5" path="res://scenes/World.tscn" id="1_hiqbr"]
+[ext_resource type="PackedScene" uid="uid://dvbpabmk7fsvt" path="res://scenes/World.tscn" id="1_hiqbr"]
 [ext_resource type="PackedScene" uid="uid://b6yf33nqp0moq" path="res://scenes/Player.tscn" id="2_jotrt"]
 [ext_resource type="PackedScene" uid="uid://dkgo5dcwkv256" path="res://scenes/FollowCamera.tscn" id="3_shxn7"]
 
