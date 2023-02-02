@@ -26,10 +26,24 @@ var target_yaw
 var target_enemy = null
 var is_rolling: bool
 var falling_momentum = 0
+var sound_pain = []
+var sound_grunt = []
 
 func _ready():
 	yaw = rotation.y
 	target_yaw = rotation.y
+	sound_pain.append($Sounds/Pain/TurnipPain1)
+	sound_pain.append($Sounds/Pain/TurnipPain2)
+	sound_pain.append($Sounds/Pain/TurnipPain3)
+	sound_pain.append($Sounds/Pain/TurnipPain4)
+	sound_grunt.append($Sounds/Attack/TurnipGrunt1)
+	sound_grunt.append($Sounds/Attack/TurnipGrunt2)
+	sound_grunt.append($Sounds/Attack/TurnipGrunt3)
+	sound_grunt.append($Sounds/Attack/TurnipGrunt4)
+	sound_grunt.append($Sounds/Attack/TurnipGrunt5)
+	sound_grunt.append($Sounds/Attack/TurnipGrunt6)
+	sound_grunt.append($Sounds/Attack/TurnipGrunt7)
+	
 
 func _process(delta):
 	stamina = clamp(stamina + stamina_recovery_rate * delta, 0, max_stamina)
@@ -103,13 +117,18 @@ func attack():
 		stamina -= hit_stamina_deduction
 		stamina = clamp(stamina - hit_stamina_deduction, 0, max_stamina)
 		emit_signal("stamina_changed", stamina)
+		var rng = RandomNumberGenerator.new()
+		rng.randomize()
+		sound_grunt[rng.randi_range(0,6)].play()
 		$AnimationPlayer.play("Attack")
 		for enemy in enemies_in_hurtbox:
 			enemy.take_damage(damage)
 
 func take_damage(amount):
 	if is_rolling: return
-	$SoundTurnipPain.play()
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+	sound_pain[rng.randi_range(0,3)].play()
 	health = clamp(health - amount, 0, max_health)
 	emit_signal("health_changed", health)
 	if health <= 0:

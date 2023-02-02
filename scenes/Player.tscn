@@ -1,9 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://b6yf33nqp0moq"]
+[gd_scene load_steps=17 format=3 uid="uid://b6yf33nqp0moq"]
 
 [ext_resource type="PackedScene" uid="uid://2v1t3pxydbpi" path="res://assets/turnip/turnip.glb" id="1_t55ud"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="2_jilhi"]
 [ext_resource type="PackedScene" uid="uid://c4m2cl0eidren" path="res://scenes/HUD.tscn" id="3_x7etn"]
 [ext_resource type="AudioStream" uid="uid://uyfo4kjd6e4r" path="res://assets/sound/turnip/TurnipPain2.wav" id="4_2tory"]
+[ext_resource type="AudioStream" uid="uid://ricdbdlinpy7" path="res://assets/sound/turnip/TurnipPain1.wav" id="4_vtkht"]
+[ext_resource type="AudioStream" uid="uid://42g308k25a4v" path="res://assets/sound/turnip/TurnipPain3.wav" id="6_i3ecb"]
+[ext_resource type="AudioStream" uid="uid://ww8wmm5osloi" path="res://assets/sound/turnip/TurnipPain4.wav" id="7_exhb8"]
+[ext_resource type="AudioStream" uid="uid://bjyf5l5jcymkk" path="res://assets/sound/turnip/TurnipGrunt1.wav" id="8_nv6bo"]
+[ext_resource type="AudioStream" uid="uid://3p8w5yy6v7w4" path="res://assets/sound/turnip/TurnipGrunt2.wav" id="9_331f8"]
+[ext_resource type="AudioStream" uid="uid://bt3lfkacjcw2j" path="res://assets/sound/turnip/TurnipGrunt4.wav" id="10_4rl26"]
+[ext_resource type="AudioStream" uid="uid://vljgx4hcddwk" path="res://assets/sound/turnip/TurnipGrunt5.wav" id="11_8h0ym"]
+[ext_resource type="AudioStream" uid="uid://mpqxpvhulkib" path="res://assets/sound/turnip/TurnipGrunt6.wav" id="12_p3iy1"]
+[ext_resource type="AudioStream" uid="uid://dpfn687grhmna" path="res://assets/sound/turnip/TurnipGrunt7.wav" id="13_ctwyl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hhea5"]
 size = Vector3(0.846341, 0.609593, 0.799016)
@@ -56,8 +65,55 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0106925, -0.374029)
 shape = SubResource("ConvexPolygonShape3D_pj2uj")
 
-[node name="SoundTurnipPain" type="AudioStreamPlayer" parent="." index="5"]
+[node name="Sounds" type="Node" parent="." index="5"]
+
+[node name="Pain" type="Node" parent="Sounds" index="0"]
+
+[node name="TurnipPain1" type="AudioStreamPlayer" parent="Sounds/Pain" index="0"]
+stream = ExtResource("4_vtkht")
+bus = &"Turnip"
+
+[node name="TurnipPain2" type="AudioStreamPlayer" parent="Sounds/Pain" index="1"]
 stream = ExtResource("4_2tory")
+bus = &"Turnip"
+
+[node name="TurnipPain3" type="AudioStreamPlayer" parent="Sounds/Pain" index="2"]
+stream = ExtResource("6_i3ecb")
+bus = &"Turnip"
+
+[node name="TurnipPain4" type="AudioStreamPlayer" parent="Sounds/Pain" index="3"]
+stream = ExtResource("7_exhb8")
+bus = &"Turnip"
+
+[node name="Attack" type="Node" parent="Sounds" index="1"]
+
+[node name="TurnipGrunt1" type="AudioStreamPlayer" parent="Sounds/Attack" index="0"]
+stream = ExtResource("8_nv6bo")
+bus = &"Turnip"
+
+[node name="TurnipGrunt2" type="AudioStreamPlayer" parent="Sounds/Attack" index="1"]
+stream = ExtResource("9_331f8")
+bus = &"Turnip"
+
+[node name="TurnipGrunt3" type="AudioStreamPlayer" parent="Sounds/Attack" index="2"]
+stream = ExtResource("9_331f8")
+bus = &"Turnip"
+
+[node name="TurnipGrunt4" type="AudioStreamPlayer" parent="Sounds/Attack" index="3"]
+stream = ExtResource("10_4rl26")
+bus = &"Turnip"
+
+[node name="TurnipGrunt5" type="AudioStreamPlayer" parent="Sounds/Attack" index="4"]
+stream = ExtResource("11_8h0ym")
+bus = &"Turnip"
+
+[node name="TurnipGrunt6" type="AudioStreamPlayer" parent="Sounds/Attack" index="5"]
+stream = ExtResource("12_p3iy1")
+bus = &"Turnip"
+
+[node name="TurnipGrunt7" type="AudioStreamPlayer" parent="Sounds/Attack" index="6"]
+stream = ExtResource("13_ctwyl")
+bus = &"Turnip"
 
 [connection signal="health_changed" from="." to="HUD" method="_on_player_health_changed"]
 [connection signal="stamina_changed" from="." to="HUD" method="_on_player_stamina_changed"]
