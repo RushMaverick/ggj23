@@ -26,8 +26,7 @@ func _ready():
 	target_yaw = rotation.y
 
 func _process(delta):
-	stamina += stamina_recovery_rate * delta
-	clamp(stamina, 0, max_stamina)
+	stamina = clamp(stamina + stamina_recovery_rate * delta, 0, max_stamina)
 	emit_signal("stamina_changed", stamina)
 
 func _physics_process(delta):
@@ -62,15 +61,14 @@ func attack():
 		and stamina >= hit_stamina_deduction:
 		prev_hit_time = Time.get_ticks_msec()
 		stamina -= hit_stamina_deduction
-		clamp(stamina, 0, max_stamina)
+		stamina = clamp(stamina - hit_stamina_deduction, 0, max_stamina)
 		emit_signal("stamina_changed", stamina)
 		$AnimationPlayer.play("Attack")
 		for enemy in enemies_in_hurtbox:
 			enemy.take_damage(damage)
 
 func take_damage(amount):
-	health -= amount
-	clamp(health, 0, max_health)
+	health = clamp(health - amount, 0, max_health)
 	emit_signal("health_changed", health)
 	if health <= 0:
 		queue_free()
