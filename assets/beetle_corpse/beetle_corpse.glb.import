@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b0axgvrf7otew"
-path="res://.godot/imported/mushroom_sad.glb-d9af8bc08610c560790b2b3de8f91cd2.scn"
+uid="uid://brffgphyr85f0"
+path="res://.godot/imported/beetle_corpse.glb-730f5ec499aeb911f60ae0f484441059.scn"
 
 [deps]
 
-source_file="res://assets/mushroom_sad.glb"
-dest_files=["res://.godot/imported/mushroom_sad.glb-d9af8bc08610c560790b2b3de8f91cd2.scn"]
+source_file="res://assets/beetle_corpse/beetle_corpse.glb"
+dest_files=["res://.godot/imported/beetle_corpse.glb-730f5ec499aeb911f60ae0f484441059.scn"]
 
 [params]
 
