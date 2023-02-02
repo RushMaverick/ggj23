@@ -27,4 +27,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.91219, 1.59488, 1.93455)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TestBlock"]
 shape = SubResource("BoxShape3D_dnpoy")
 
+[connection signal="enemy_target_set" from="Player" to="FollowCamera" method="_on_player_enemy_target_set"]
+[connection signal="enemy_target_unset" from="Player" to="FollowCamera" method="_on_player_enemy_target_unset"]
 [connection signal="moved" from="FollowCamera" to="Player" method="_on_follow_camera_moved"]
