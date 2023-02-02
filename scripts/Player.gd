@@ -67,7 +67,11 @@ func _physics_process(delta):
 	if !is_on_floor():
 		velocity.y -= gravity * delta
 		move_and_slide()
-	$Turnip.rotation.y = lerp_angle($Turnip.rotation.y, target_angle, delta * lerp_speed)
+	if !target_enemy:
+		$Turnip.rotation.y = lerp_angle($Turnip.rotation.y, target_angle, delta * lerp_speed)
+	else:
+		$Turnip.rotation = Vector3.ZERO
+		$Turnip.rotation.y = deg_to_rad(180)
 	if target_enemy:
 		var target_enemy_direction = global_position - target_enemy.global_position
 		target_enemy_direction.normalized()

@@ -3,7 +3,11 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
+<<<<<<< HEAD
 uid="uid://dr1i4a55j4wsf"
+=======
+uid="uid://se1bvw8fl2ny"
+>>>>>>> dfa568461f0f61ece759cd6af360989193ddda90
 path="res://.godot/imported/mushroomred.glb-03535249d466cb85205ad243ec335ba8.scn"
 
 [deps]
