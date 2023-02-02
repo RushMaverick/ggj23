@@ -3,17 +3,17 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bhrr35dhbgis5"
-path="res://.godot/imported/beetle_corpse_upper_body.glb-fb5c299843e67fca3c0933bcc5db3070.scn"
+uid="uid://cakql2tcpp0wv"
+path="res://.godot/imported/mushrooms2.glb-a921c5307e4a9873e8bae4e7c1416bce.scn"
 
 [deps]
 
-source_file="res://assets/beetle_corpse/beetle_corpse_upper_body.glb"
-dest_files=["res://.godot/imported/beetle_corpse_upper_body.glb-fb5c299843e67fca3c0933bcc5db3070.scn"]
+source_file="res://assets/mushrooms2.glb"
+dest_files=["res://.godot/imported/mushrooms2.glb-a921c5307e4a9873e8bae4e7c1416bce.scn"]
 
 [params]
 
-nodes/root_type="RigidBody3D"
+nodes/root_type="Node3D"
 nodes/root_name="Scene Root"
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
