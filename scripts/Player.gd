@@ -63,12 +63,11 @@ func _physics_process(delta):
 	elif $AnimationPlayer.current_animation != "Attack":
 		$AnimationPlayer.play("Idle")
 	$Turnip.rotation.y = lerp_angle($Turnip.rotation.y, target_angle, delta * lerp_speed)
-	if !target_enemy:
-		rotation.y = lerp_angle(rotation.y, target_yaw, delta * lerp_speed)
-	else:
+	if target_enemy:
 		var target_enemy_direction = global_position - target_enemy.global_position
 		target_enemy_direction.normalized()
-		rotation.y = atan2(target_enemy_direction.x, target_enemy_direction.z)
+		target_yaw = atan2(target_enemy_direction.x, target_enemy_direction.z)
+	rotation.y = lerp_angle(rotation.y, target_yaw, delta * lerp_speed)
 
 func find_target_enemy():
 	var new_target = enemies_in_range.front()
