@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://b6yf33nqp0moq"]
+[gd_scene load_steps=8 format=3 uid="uid://b6yf33nqp0moq"]
 
 [ext_resource type="PackedScene" uid="uid://2v1t3pxydbpi" path="res://assets/turnip/turnip.glb" id="1_t55ud"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="2_jilhi"]
-[ext_resource type="PackedScene" uid="uid://c4m2cl0eidren" path="res://scenes/HUD.tscn" id="3_x7etn"]
+[ext_resource type="PackedScene" path="res://scenes/HUD.tscn" id="3_x7etn"]
+[ext_resource type="AudioStream" uid="uid://uyfo4kjd6e4r" path="res://assets/sound/turnip/TurnipPain2.wav" id="4_2tory"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hhea5"]
 size = Vector3(0.846341, 0.609593, 0.799016)
@@ -54,6 +55,9 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 [node name="TargetRangeCollisionShape" type="CollisionShape3D" parent="TargetRange" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0106925, -0.374029)
 shape = SubResource("ConvexPolygonShape3D_pj2uj")
+
+[node name="SoundTurnipPain" type="AudioStreamPlayer" parent="." index="5"]
+stream = ExtResource("4_2tory")
 
 [connection signal="health_changed" from="." to="HUD" method="_on_player_health_changed"]
 [connection signal="stamina_changed" from="." to="HUD" method="_on_player_stamina_changed"]

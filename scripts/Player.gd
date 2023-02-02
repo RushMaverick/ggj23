@@ -109,6 +109,7 @@ func attack():
 
 func take_damage(amount):
 	if is_rolling: return
+	$SoundTurnipPain.play()
 	health = clamp(health - amount, 0, max_health)
 	emit_signal("health_changed", health)
 	if health <= 0:
