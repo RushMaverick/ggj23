@@ -3,21 +3,31 @@ extends CharacterBody3D
 @export var health = 50
 @export var move_speed = 100
 @export var damage = 10
-@export var bite_distance = 100
+@export var bite_distance = 1
 @export var bite_cooldown_ms = 2000
+@export var charge_distance = 6
+@export var charge_cooldown_ms = 2000
+@export var charge_movespeed_scalar = 2.0
 @export var weight = 300
 
 var corpse_scene = preload("res://scenes/EnemyCorpse.tscn")
 var falling_momentum = 0
 var prev_bite_time = 0
+var prev_charge_time = 0
 var target = null
 
 func _process(_delta):
-	if target \
-		and global_position.distance_to(target.global_position) < bite_distance \
-		and Time.get_ticks_msec() - prev_bite_time > bite_cooldown_ms:
-		prev_bite_time = Time.get_ticks_msec()
-		$AnimationPlayer.play("Bite")
+	if target:
+		if global_position.distance_to(target.global_position) <= bite_distance:
+			if Time.get_ticks_msec() - prev_bite_time > bite_cooldown_ms:
+				prev_bite_time = Time.get_ticks_msec()
+				$AnimationPlayer.play("Bite")
+		elif global_position.distance_to(target.global_position) <= charge_distance:
+			if Time.get_ticks_msec() - prev_charge_time > charge_cooldown_ms:
+				prev_charge_time = Time.get_ticks_msec()
+				$AnimationPlayer.play("Charge")
+		elif $AnimationPlayer.current_animation == "Charge":
+			$AnimationPlayer.play("Walk")
 
 func _physics_process(delta):
 	var rot_x = rotation.x
@@ -25,6 +35,8 @@ func _physics_process(delta):
 		look_at(target.position, Vector3.UP)
 		rotation.x = rot_x
 		velocity = -global_transform.basis.z * move_speed * delta
+		if $AnimationPlayer.current_animation == "Charge":
+			velocity *= charge_movespeed_scalar
 	if !is_on_floor():
 		fall(delta)
 	move_and_slide()

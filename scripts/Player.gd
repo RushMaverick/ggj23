@@ -7,7 +7,7 @@ signal enemy_target_unset
 
 @export var max_health = 100
 @export var max_stamina = 100
-@export var stamina_recovery_rate = 5
+@export var stamina_recovery_rate = 10
 @export var movement_speed = 300
 @export var damage = 15
 @export var hit_stamina_deduction = 5
@@ -95,6 +95,8 @@ func _physics_process(delta):
 	rotation.y = lerp_angle(rotation.y, target_yaw, delta * lerp_speed)
 
 func find_target_enemy():
+	if enemies_in_range.is_empty():
+		return
 	var new_target = enemies_in_range.front()
 	if new_target:
 		var prev_distance = global_position - new_target.global_position

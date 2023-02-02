@@ -249,7 +249,7 @@ libraries = {
 }
 
 [node name="beetle_corpse_head" parent="." instance=ExtResource("1_s2q6f")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0160197, 0, 0.048906)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0160197, 0, -0.0135754)
 collision_layer = 2
 physics_material_override = SubResource("PhysicsMaterial_n7mge")
 
@@ -258,7 +258,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.2
 shape = SubResource("CylinderShape3D_wchuk")
 
 [node name="beetle_corpse_upper_body" parent="." instance=ExtResource("2_02fq2")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0160197, 0, 0.0108759)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0160197, 0, -0.00970314)
 collision_layer = 2
 physics_material_override = SubResource("PhysicsMaterial_n7mge")
 can_sleep = false
@@ -268,7 +268,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.2
 shape = SubResource("CylinderShape3D_mpr0e")
 
 [node name="beetle_corpse_lower_body" parent="." instance=ExtResource("3_g1pw3")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0160197, 0, -0.0115319)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0160197, 0, -0.0085905)
 collision_layer = 2
 physics_material_override = SubResource("PhysicsMaterial_n7mge")
 can_sleep = false
@@ -278,7 +278,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.2
 shape = SubResource("CylinderShape3D_b33bk")
 
 [node name="beetle_corpse_leg_left" parent="." instance=ExtResource("5_itjur")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.00628781, 0, 0.0108759)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0548679, 0, 0.0108759)
 collision_layer = 2
 physics_material_override = SubResource("PhysicsMaterial_n7mge")
 can_sleep = false
@@ -288,7 +288,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.355059, 0.0111331, 0.269157
 shape = SubResource("CylinderShape3D_cqmw3")
 
 [node name="beetle_corpse_leg_left2" parent="." instance=ExtResource("5_itjur")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.0152535, 0, 0.288749)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0333266, 0, 0.288749)
 collision_layer = 2
 physics_material_override = SubResource("PhysicsMaterial_n7mge")
 can_sleep = false
@@ -298,7 +298,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.355059, 0.0111331, 0.269157
 shape = SubResource("CylinderShape3D_cqmw3")
 
 [node name="beetle_corpse_leg_left3" parent="." instance=ExtResource("5_itjur")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.000424717, 0, 0.557933)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0490048, 0, 0.557933)
 collision_layer = 2
 physics_material_override = SubResource("PhysicsMaterial_n7mge")
 can_sleep = false
@@ -308,7 +308,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.355059, 0.0111331, 0.269157
 shape = SubResource("CylinderShape3D_cqmw3")
 
 [node name="beetle_corpse_leg_right" parent="." instance=ExtResource("4_c3t0t")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0160197, 0, 0.0108759)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.002747, 0, 0.0108759)
 collision_layer = 2
 physics_material_override = SubResource("PhysicsMaterial_n7mge")
 can_sleep = false
@@ -318,7 +318,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.344521, 0.0111331, 0.26915
 shape = SubResource("CylinderShape3D_cqmw3")
 
 [node name="beetle_corpse_leg_right2" parent="." instance=ExtResource("4_c3t0t")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0117855, 0, 0.28834)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.00698118, 0, 0.28834)
 collision_layer = 2
 physics_material_override = SubResource("PhysicsMaterial_n7mge")
 can_sleep = false
@@ -328,7 +328,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.344521, 0.0111331, 0.26915
 shape = SubResource("CylinderShape3D_cqmw3")
 
 [node name="beetle_corpse_leg_right3" parent="." instance=ExtResource("4_c3t0t")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0128432, 0, 0.558093)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.00592355, 0, 0.558093)
 collision_layer = 2
 physics_material_override = SubResource("PhysicsMaterial_n7mge")
 can_sleep = false
