@@ -17,7 +17,7 @@ func _process(_delta):
 		previous_level_up = Time.get_ticks_msec()
 	if load_enemy:
 		if Time.get_ticks_msec() - prev_spawn_time > enemy_spawn_timer:
-			if get_tree().get_nodes_in_group("ENEMIES").size() <= 20:
+			if get_tree().get_nodes_in_group("enemy").size() <= 20:
 				for i in range(0, enemies_to_spawn):
 					prev_spawn_time = Time.get_ticks_msec()
 					var enemy = load_enemy.instantiate()
