@@ -163,7 +163,7 @@ func take_damage(amount):
 		get_tree().change_scene_to_file("res://scenes/StartScreen.tscn")
 
 func jump():
-	$AnimationPlayer.play("Jump")
+	$AnimationPlayer.play("Local/jump_anim")
 
 func roll():
 	$AnimationPlayer.play("Roll")
