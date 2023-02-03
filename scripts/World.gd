@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var level_timer = 50000
+@export var level_timer = 40000
 @export var enemy_spawn_timer = 15000
 var previous_level_up = 0
 var prev_spawn_time = 0
@@ -8,7 +8,6 @@ var prev_spawn_time = 0
 var load_enemy = load("res://scenes/Enemy.tscn")
 
 func _process(_delta):
-	print(enemy_spawn_timer)
 	if Time.get_ticks_msec() - previous_level_up > level_timer:
 		if enemy_spawn_timer > 500:
 			enemy_spawn_timer -= 500
