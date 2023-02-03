@@ -58,18 +58,10 @@ func _process(delta):
 	emit_signal("stamina_changed", stamina)
 
 func _physics_process(delta):
-	var direction = Vector3.ZERO
+	var direction = get_movement_direction()
 	var target_angle = $Turnip.rotation.y
 	if !target_enemy and Input.is_action_pressed("lock_enemy"):
 		find_target_enemy()
-	if Input.is_action_pressed("forward"):
-		direction.z -= 1
-	if Input.is_action_pressed("back"):
-		direction.z += 1
-	if Input.is_action_pressed("left"):
-		direction.x -= 1
-	if Input.is_action_pressed("right"):
-		direction.x += 1
 	if direction != Vector3.ZERO and is_on_floor():
 		direction = direction.normalized()
 		velocity = direction * movement_speed * delta
@@ -92,6 +84,18 @@ func _physics_process(delta):
 		target_enemy_direction.normalized()
 		target_yaw = atan2(target_enemy_direction.x, target_enemy_direction.z)
 	rotation.y = lerp_angle(rotation.y, target_yaw, delta * lerp_speed)
+
+func get_movement_direction():
+	var direction = Vector3.ZERO
+	if Input.is_action_pressed("forward"):
+		direction.z -= 1
+	if Input.is_action_pressed("back"):
+		direction.z += 1
+	if Input.is_action_pressed("left"):
+		direction.x -= 1
+	if Input.is_action_pressed("right"):
+		direction.x += 1
+	return direction
 
 func find_target_enemy():
 	if enemies_in_range.is_empty():
