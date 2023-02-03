@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://b6yf33nqp0moq"]
 
-[ext_resource type="PackedScene" uid="uid://cq2qg0138n1y5" path="res://assets/turnip/turnip.glb" id="1_t55ud"]
+[ext_resource type="PackedScene" uid="uid://ggj7fc0t30n7" path="res://assets/turnip/turnip.glb" id="1_t55ud"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="2_jilhi"]
 [ext_resource type="PackedScene" uid="uid://c4m2cl0eidren" path="res://scenes/HUD.tscn" id="3_x7etn"]
 [ext_resource type="AudioStream" uid="uid://uyfo4kjd6e4r" path="res://assets/sound/turnip/TurnipPain2.wav" id="4_2tory"]
