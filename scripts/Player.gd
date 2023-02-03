@@ -164,7 +164,6 @@ func take_damage(amount):
 
 func jump():
 	$AnimationPlayer.play("Jump")
-	jumping_momentum = 100
 
 func roll():
 	$AnimationPlayer.play("Roll")
