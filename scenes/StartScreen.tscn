@@ -14,11 +14,13 @@ script = ExtResource("1_7m2ll")
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 5
+anchor_left = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
+offset_left = -960.0
 offset_right = 960.0
-offset_bottom = 548.0
+offset_bottom = 1088.0
+grow_horizontal = 2
 stream = ExtResource("2_n1ivt")
 autoplay = true
 

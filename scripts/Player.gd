@@ -139,6 +139,7 @@ func take_damage(amount):
 	emit_signal("health_changed", health)
 	if health <= 0:
 		queue_free()
+		get_tree().change_scene_to_file("res://scenes/StartScreen.tscn")
 
 func fall(delta):
 	falling_momentum += 0.05
