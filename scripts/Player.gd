@@ -78,7 +78,7 @@ func _physics_process(delta):
 		target_yaw = yaw
 		move_and_slide()
 		if $AnimationPlayer.current_animation not in ["Attack", "Roll"]:
-			$AnimationPlayer.play("Run")	
+			$AnimationPlayer.play("Run")
 	elif $AnimationPlayer.current_animation not in ["Attack", "Roll"]:
 		$AnimationPlayer.play("Idle")
 	if !is_on_floor():
@@ -88,9 +88,6 @@ func _physics_process(delta):
 	if !target_enemy:
 		$Turnip.rotation.y = lerp_angle($Turnip.rotation.y, target_angle, delta * lerp_speed)
 	else:
-		$Turnip.rotation = Vector3.ZERO
-		$Turnip.rotation.y = deg_to_rad(180)
-	if target_enemy:
 		var target_enemy_direction = global_position - target_enemy.global_position
 		target_enemy_direction.normalized()
 		target_yaw = atan2(target_enemy_direction.x, target_enemy_direction.z)
@@ -108,6 +105,8 @@ func find_target_enemy():
 				new_target = enemy
 				prev_distance = distance
 		target_enemy = new_target
+		$Turnip.rotation = Vector3.ZERO
+		$Turnip.rotation.y = deg_to_rad(180)
 		emit_signal("enemy_target_set")
 
 func unset_target_enemy():
