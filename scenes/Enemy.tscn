@@ -438,6 +438,7 @@ transform = Transform3D(0.6, 0, 0, 0, -2.62268e-08, -0.6, 0, 0.6, -2.62268e-08, 
 shape = SubResource("CapsuleShape3D_yy733")
 
 [node name="VisionCone" type="Area3D" parent="."]
+collision_mask = 2
 
 [node name="up" type="CollisionPolygon3D" parent="VisionCone"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
@@ -457,6 +458,7 @@ polygon = PackedVector2Array(0, 0, 30, 30, 30, -30)
 
 [node name="Hurtbox" type="Area3D" parent="."]
 process_mode = 4
+collision_mask = 2
 monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
