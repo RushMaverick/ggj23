@@ -54,9 +54,9 @@ func _input(event):
 		unset_target_enemy()
 	if event.is_action_pressed("attack") and not is_rolling:
 		attack()
-	if event.is_action_pressed("roll") and not is_rolling:
+	if event.is_action_pressed("roll") and not is_rolling and not is_jumping:
 		roll()
-	if event.is_action_pressed("jump") && not is_rolling && not is_jumping:
+	if event.is_action_pressed("jump") && not is_rolling and not is_jumping:
 		jump()
 
 func _process(delta):
@@ -91,6 +91,7 @@ func _physics_process(delta):
 			if $AnimationPlayer.current_animation == "Run":
 				$AnimationPlayer.play("Idle")
 		velocity = Vector3.ZERO
+	velocity.y = -0.1
 	if is_on_floor():
 		if is_falling:
 			falling_momentum = 0

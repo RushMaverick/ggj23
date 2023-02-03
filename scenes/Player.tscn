@@ -24,7 +24,15 @@ points = PackedVector3Array(0, 0, 0, 4, 1, 4, -4, 1, 4, -4, 0, 4, 4, 0, 4, 0, 1,
 
 [node name="Player" groups=["player"] instance=ExtResource("1_t55ud")]
 process_mode = 3
-floor_block_on_wall = false
+disable_mode = 2
+collision_layer = 2
+input_ray_pickable = false
+slide_on_ceiling = false
+wall_min_slide_angle = 0.441568
+platform_on_leave = 2
+platform_floor_layers = 1
+platform_wall_layers = 1
+safe_margin = 0.01
 script = ExtResource("2_jilhi")
 
 [node name="HUD" parent="." index="0" instance=ExtResource("3_x7etn")]
