@@ -1,45 +1,41 @@
-[gd_scene load_steps=3 format=3 uid="uid://b6pk15ppbye84"]
+[gd_scene load_steps=2 format=3 uid="uid://b6pk15ppbye84"]
 
-[ext_resource type="FontFile" uid="uid://27dyj8rym21b" path="res://assets/Cinzel_Decorative/CinzelDecorative-Black.ttf" id="1_0c3j1"]
-[ext_resource type="FontFile" uid="uid://d1kphpubkb8eh" path="res://assets/font-raven-scream/Raven Scream.otf" id="1_b08kr"]
+[ext_resource type="Script" path="res://scripts/StartScreen.gd" id="1_7m2ll"]
 
-[node name="StartScreen" type="Node2D"]
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7m2ll")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 1919.0
-offset_bottom = 1074.0
-color = Color(0.603922, 0.537255, 0.431373, 1)
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.497
+anchor_top = 0.681
+anchor_right = 0.5
+anchor_bottom = 0.681
+offset_left = -211.24
+offset_top = -242.48
+offset_right = 231.0
+offset_bottom = 224.52
+pivot_offset = Vector2(167, 195)
+alignment = 1
 
-[node name="Label" type="Label" parent="ColorRect"]
-layout_mode = 0
-offset_left = 177.0
-offset_top = 87.0
-offset_right = 286.0
-offset_bottom = 113.0
-scale = Vector2(14.6415, 11.897)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0.647059, 0.635294, 0.603922, 1)
-theme_override_fonts/font = ExtResource("1_0c3j1")
-text = "Dark Roots"
-horizontal_alignment = 1
+[node name="start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Start Game"
+icon_alignment = 1
 
-[node name="NewGame" type="ColorRect" parent="."]
-offset_left = 316.0
-offset_top = 703.0
-offset_right = 356.0
-offset_bottom = 743.0
-scale = Vector2(32.7415, 4.44212)
-color = Color(0.588235, 0.47451, 0.494118, 1)
+[node name="quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quit"
 
-[node name="Label" type="Label" parent="NewGame"]
-layout_mode = 0
-offset_left = 9.95678
-offset_top = -53.1278
-offset_right = 123.957
-offset_bottom = -9.12775
-scale = Vector2(0.169511, 1.90414)
-theme_override_colors/font_color = Color(0.8, 0, 0.0941176, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_b08kr")
-theme_override_font_sizes/font_size = 20
-text = "New game"
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/quit" to="." method="_on_quit_pressed"]
