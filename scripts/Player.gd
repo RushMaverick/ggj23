@@ -10,7 +10,8 @@ signal enemy_target_unset
 @export var stamina_recovery_rate = 10
 @export var movement_speed = 300
 @export var damage = 15
-@export var hit_stamina_deduction = 5
+@export var hit_stamina_deduction = 15
+@export var roll_stamina_deduction = 30
 @export var hit_cooldown_ms = 400
 @export var lerp_speed = 10
 @export var weight = 300
@@ -60,6 +61,9 @@ func _physics_process(delta):
 		attack()
 	elif Input.is_action_just_pressed("roll") && not is_rolling:
 		$AnimationPlayer.play("Roll")
+		stamina -= roll_stamina_deduction
+		stamina = clamp(stamina - roll_stamina_deduction, 0, max_stamina)
+		emit_signal("stamina_changed", stamina)
 	if Input.is_action_pressed("forward"):
 		direction.z -= 1
 	if Input.is_action_pressed("back"):
