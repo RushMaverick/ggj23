@@ -194,7 +194,7 @@ func _on_target_range_body_exited(body):
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "Roll": is_rolling = false
-	elif is_running: $AnimationPlayer.play("Run")
+	if is_running: $AnimationPlayer.play("Run")
 	else: $AnimationPlayer.play("Idle")
 
 func _on_animation_player_animation_started(anim_name):
