@@ -16,6 +16,7 @@ signal enemy_target_unset
 @export var lerp_speed = 10
 @export var weight = 300
 @export var jumping_momentum = 0
+@export var is_jumping: bool = false
 
 var health = max_health
 var stamina = max_stamina
@@ -29,7 +30,6 @@ var target_enemy = null
 var is_rolling: bool
 var is_falling: bool = false
 var is_running: bool = false
-@export var is_jumping: bool = false
 var falling_momentum = 0
 var sound_pain = []
 var sound_grunt = []
@@ -91,7 +91,6 @@ func _physics_process(delta):
 			if $AnimationPlayer.current_animation == "Run":
 				$AnimationPlayer.play("Idle")
 		velocity = Vector3.ZERO
-	velocity.y = -0.1
 	if is_on_floor():
 		if is_falling:
 			falling_momentum = 0
