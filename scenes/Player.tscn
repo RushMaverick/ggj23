@@ -118,6 +118,7 @@ bus = &"Turnip"
 [connection signal="stamina_changed" from="." to="HUD" method="_on_player_stamina_changed" flags=18]
 [connection signal="body_entered" from="Turnip/Hurtbox" to="." method="_on_hurtbox_body_entered" flags=18]
 [connection signal="body_exited" from="Turnip/Hurtbox" to="." method="_on_hurtbox_body_exited" flags=18]
+[connection signal="animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_animation_changed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished" flags=18]
 [connection signal="animation_started" from="AnimationPlayer" to="." method="_on_animation_player_animation_started" flags=18]
 [connection signal="body_entered" from="TargetRange" to="." method="_on_target_range_body_entered" flags=18]
