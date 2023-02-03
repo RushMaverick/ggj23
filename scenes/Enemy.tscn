@@ -237,6 +237,21 @@ tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = PackedFloat32Array(0, 1, 0.638307, -0.257496, 0.278435, 0.669876, 0.0333333, 1, 0.638307, -0.257496, 0.278435, 0.669876, 0.0666667, 1, 0.637243, -0.257054, 0.278843, 0.670888, 0.1, 1, 0.634968, -0.256108, 0.279712, 0.673042, 0.166667, 1, 0.628674, -0.253493, 0.282084, 0.678925, 0.2, 1, 0.627235, -0.252895, 0.28262, 0.680254, 0.233333, 1, 0.643034, -0.259461, 0.276605, 0.66534, 0.266667, 1, 0.67858, -0.27425, 0.261948, 0.629046, 0.3, 1, 0.727725, -0.294743, 0.238656, 0.571477, 0.333333, 1, 0.778104, -0.315822, 0.209968, 0.500724, 0.366667, 1, 0.814663, -0.331184, 0.184789, 0.438741, 0.4, 1, 0.832953, -0.338899, 0.170228, 0.402938, 0.433333, 1, 0.832376, -0.338655, 0.170713, 0.404128, 0.466667, 1, 0.812321, -0.330198, 0.186546, 0.443062, 0.5, 1, 0.771907, -0.313225, 0.213823, 0.510225, 0.533333, 1, 0.715145, -0.289492, 0.244999, 0.587144, 0.566667, 1, 0.657037, -0.265284, 0.271025, 0.651515, 0.6, 1, 0.607462, -0.244683, 0.289759, 0.697969, 0.633333, 1, 0.572644, -0.230237, 0.301365, 0.726808, 0.666667, 1, 0.553196, -0.222176, 0.307357, 0.741717, 0.7, 1, 0.548237, -0.220121, 0.308831, 0.74539, 0.708333, 1, 0.546993, -0.219606, 0.309198, 0.746303)
 
+[sub_resource type="Animation" id="Animation_pr14o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hurtbox:process_mode")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
 [sub_resource type="Animation" id="Animation_wbiqb"]
 resource_name = "Walk"
 length = 0.708333
@@ -317,21 +332,6 @@ tracks/10/path = NodePath("Beetle/Skeleton3D:Bone.001")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
-
-[sub_resource type="Animation" id="Animation_pr14o"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Hurtbox:process_mode")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_te3nc"]
 _data = {
