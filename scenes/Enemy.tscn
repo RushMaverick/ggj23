@@ -466,6 +466,7 @@ monitorable = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -0.75)
 shape = SubResource("BoxShape3D_qtb1w")
 
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="VisionCone" to="." method="_on_vision_cone_body_entered"]
 [connection signal="body_exited" from="VisionCone" to="." method="_on_vision_cone_body_exited"]
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
