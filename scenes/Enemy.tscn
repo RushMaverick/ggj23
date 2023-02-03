@@ -347,6 +347,7 @@ _data = {
 size = Vector3(0.467776, 0.262788, 0.367997)
 
 [node name="Enemy" type="CharacterBody3D" groups=["enemy"]]
+collision_mask = 3
 script = ExtResource("1_rcc5m")
 
 [node name="Beetle" type="Node3D" parent="."]
