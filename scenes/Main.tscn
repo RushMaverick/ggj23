@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://nn5sj1sinbna"]
+[gd_scene load_steps=7 format=3 uid="uid://nn5sj1sinbna"]
 
 [ext_resource type="PackedScene" uid="uid://da7xiidgi54q3" path="res://scenes/Enemy.tscn" id="1_6mc5e"]
-[ext_resource type="PackedScene" uid="uid://dvbpabmk7fsvt" path="res://scenes/World.tscn" id="1_hiqbr"]
+[ext_resource type="PackedScene" uid="uid://0c0yrf5c5ew5" path="res://scenes/World.tscn" id="1_hiqbr"]
 [ext_resource type="PackedScene" uid="uid://b6yf33nqp0moq" path="res://scenes/Player.tscn" id="2_jotrt"]
+[ext_resource type="Script" path="res://scripts/World.gd" id="2_ybc3b"]
 [ext_resource type="PackedScene" uid="uid://dkgo5dcwkv256" path="res://scenes/FollowCamera.tscn" id="3_shxn7"]
 
 [sub_resource type="Environment" id="Environment_fiood"]
@@ -18,6 +19,7 @@ volumetric_fog_enabled = true
 environment = SubResource("Environment_fiood")
 
 [node name="World" parent="." instance=ExtResource("1_hiqbr")]
+script = ExtResource("2_ybc3b")
 
 [node name="FollowCamera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_shxn7")]
 target = NodePath("../Player")
