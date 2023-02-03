@@ -29,8 +29,6 @@ func _process(_delta):
 			if Time.get_ticks_msec() - prev_charge_time > charge_cooldown_ms:
 				prev_charge_time = Time.get_ticks_msec()
 				$AnimationPlayer.play("Charge")
-		elif $AnimationPlayer.current_animation == "Charge":
-			$AnimationPlayer.play("Walk")
 
 func _physics_process(delta):
 	var rot_x = rotation.x
@@ -82,3 +80,6 @@ func _on_vision_cone_body_entered(body):
 func _on_vision_cone_body_exited(body):
 	if body.is_in_group("player"):
 		target = null
+
+func _on_animation_player_animation_finished(_anim_name):
+	$AnimationPlayer.play("Walk")
