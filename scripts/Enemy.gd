@@ -12,9 +12,12 @@ extends CharacterBody3D
 
 var corpse_scene = preload("res://scenes/EnemyCorpse.tscn")
 var falling_momentum = 0
+var random_position: Vector3 = Vector3(0,0,0)
 var prev_bite_time = 0
 var prev_charge_time = 0
 var target = null
+var random_vector_time = 6000
+var previously_generated_vector_age = 0
 
 func _process(_delta):
 	if target:
@@ -37,10 +40,23 @@ func _physics_process(delta):
 		velocity = -global_transform.basis.z * move_speed * delta
 		if $AnimationPlayer.current_animation == "Charge":
 			velocity *= charge_movespeed_scalar
+	else:
+		if Time.get_ticks_msec() - previously_generated_vector_age > random_vector_time:
+			previously_generated_vector_age = Time.get_ticks_msec()
+			generate_random_vector()
+		look_at(random_position, Vector3.UP)
+		velocity = -global_transform.basis.z * move_speed * delta
 	if !is_on_floor():
 		fall(delta)
 	move_and_slide()
 
+func generate_random_vector():
+	var x = randf_range(0, 10)
+	var y = 0
+	var z = randf_range(0, 10)
+	random_position = Vector3(global_position.x * x, global_position.y * 1, global_position.z * z)
+	
+	
 func take_damage(amount):
 	health -= amount
 	if health <= 0:
