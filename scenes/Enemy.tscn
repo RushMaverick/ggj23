@@ -158,7 +158,6 @@ tracks/11/keys = {
 [sub_resource type="Animation" id="Animation_t2vet"]
 resource_name = "Charge"
 length = 0.708333
-loop_mode = 1
 tracks/0/type = "position_3d"
 tracks/0/imported = true
 tracks/0/enabled = true
