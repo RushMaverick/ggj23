@@ -26,6 +26,7 @@ var yaw
 var target_yaw
 var target_enemy = null
 var is_rolling: bool
+var is_falling: bool = false
 var falling_momentum = 0
 var sound_pain = []
 var sound_grunt = []
@@ -62,21 +63,16 @@ func _physics_process(delta):
 	var target_angle = $Turnip.rotation.y
 	if !target_enemy and Input.is_action_pressed("lock_enemy"):
 		find_target_enemy()
-	if direction != Vector3.ZERO and is_on_floor():
+	if direction != Vector3.ZERO:
 		direction = direction.normalized()
 		velocity = direction * movement_speed * delta
 		velocity = velocity.rotated(Vector3.UP, rotation.y)
 		target_angle = atan2(direction.x, direction.z)
 		target_yaw = yaw
-		move_and_slide()
-		if $AnimationPlayer.current_animation not in ["Attack", "Roll"]:
-			$AnimationPlayer.play("Run")
-	elif $AnimationPlayer.current_animation not in ["Attack", "Roll"]:
-		$AnimationPlayer.play("Idle")
-	if !is_on_floor():
-		fall(delta)
-	else:
-		falling_momentum = 0
+		#if $AnimationPlayer.current_animation not in ["Attack", "Roll"]:
+		#	$AnimationPlayer.play("Run")
+	#elif $AnimationPlayer.current_animation not in ["Attack", "Roll"]:
+	#	$AnimationPlayer.play("Idle")
 	if !target_enemy:
 		$Turnip.rotation.y = lerp_angle($Turnip.rotation.y, target_angle, delta * lerp_speed)
 	else:
@@ -84,6 +80,18 @@ func _physics_process(delta):
 		target_enemy_direction.normalized()
 		target_yaw = atan2(target_enemy_direction.x, target_enemy_direction.z)
 	rotation.y = lerp_angle(rotation.y, target_yaw, delta * lerp_speed)
+	if direction == Vector3.ZERO:
+		velocity = Vector3.ZERO
+	if is_on_floor():
+		if is_falling:
+			falling_momentum = 0
+			is_falling = false
+	else:
+		if not is_falling:
+			is_falling = true
+		falling_momentum += 0.05
+		velocity.y -= weight * falling_momentum * delta
+	move_and_slide()
 
 func get_movement_direction():
 	var direction = Vector3.ZERO
@@ -141,11 +149,6 @@ func take_damage(amount):
 	if health <= 0:
 		queue_free()
 		get_tree().change_scene_to_file("res://scenes/StartScreen.tscn")
-
-func fall(delta):
-	falling_momentum += 0.05
-	velocity.y -= weight * falling_momentum * delta
-	move_and_slide()
 
 func roll():
 	$AnimationPlayer.play("Roll")

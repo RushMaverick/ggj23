@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://b6yf33nqp0moq"]
 
-[ext_resource type="PackedScene" uid="uid://ggj7fc0t30n7" path="res://assets/turnip/turnip.glb" id="1_t55ud"]
+[ext_resource type="PackedScene" uid="uid://cq2qg0138n1y5" path="res://assets/turnip/turnip.glb" id="1_t55ud"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="2_jilhi"]
 [ext_resource type="PackedScene" uid="uid://c4m2cl0eidren" path="res://scenes/HUD.tscn" id="3_x7etn"]
 [ext_resource type="AudioStream" uid="uid://uyfo4kjd6e4r" path="res://assets/sound/turnip/TurnipPain2.wav" id="4_2tory"]
@@ -30,7 +30,6 @@ script = ExtResource("2_jilhi")
 
 [node name="Skeleton3D" parent="Turnip" index="0"]
 bones/0/position = Vector3(0, 0.358893, 0)
-bones/0/rotation = Quaternion(-2.98023e-08, 1.19209e-07, 2.11758e-22, 1)
 bones/1/rotation = Quaternion(-0.000985254, -0.0579176, -0.998254, 0.0115726)
 bones/2/rotation = Quaternion(-0.130016, 0.000984339, -0.0163407, 0.991377)
 bones/3/rotation = Quaternion(0.00891549, -0.0479913, -0.987387, 0.150613)
