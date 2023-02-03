@@ -15,6 +15,7 @@ signal enemy_target_unset
 @export var hit_cooldown_ms = 400
 @export var lerp_speed = 10
 @export var weight = 300
+@export var jumping_momentum = 0
 
 var health = max_health
 var stamina = max_stamina
@@ -28,6 +29,7 @@ var target_enemy = null
 var is_rolling: bool
 var is_falling: bool = false
 var is_running: bool = false
+@export var is_jumping: bool = false
 var falling_momentum = 0
 var sound_pain = []
 var sound_grunt = []
@@ -54,6 +56,8 @@ func _input(event):
 		attack()
 	if event.is_action_pressed("roll") and not is_rolling:
 		roll()
+	if event.is_action_pressed("jump") && not is_rolling && not is_jumping:
+		jump()
 
 func _process(delta):
 	stamina = clamp(stamina + stamina_recovery_rate * delta, 0, max_stamina)
@@ -94,8 +98,11 @@ func _physics_process(delta):
 	else:
 		if not is_falling:
 			is_falling = true
-		falling_momentum += 0.05
-		velocity.y -= weight * falling_momentum * delta
+		if not is_jumping:
+			falling_momentum += 0.05
+			velocity.y -= weight * falling_momentum * delta
+	if is_jumping:
+		velocity.y = jumping_momentum
 	move_and_slide()
 
 func get_movement_direction():
@@ -155,6 +162,10 @@ func take_damage(amount):
 		queue_free()
 		get_tree().change_scene_to_file("res://scenes/StartScreen.tscn")
 
+func jump():
+	$AnimationPlayer.play("Jump")
+	jumping_momentum = 100
+
 func roll():
 	$AnimationPlayer.play("Roll")
 	stamina -= roll_stamina_deduction
@@ -182,12 +193,10 @@ func _on_target_range_body_exited(body):
 	if body in enemies_in_range:
 		enemies_in_range.erase(body)
 
-func _on_animation_player_animation_changed(old_name, new_name):
-	if old_name == "Roll": is_rolling = false
-	elif new_name == "Roll": is_rolling = true
-
 func _on_animation_player_animation_finished(anim_name):
-	if is_running:
-		$AnimationPlayer.play("Run")
-	else:
-		$AnimationPlayer.play("Idle")
+	if anim_name == "Roll": is_rolling = false
+	elif is_running: $AnimationPlayer.play("Run")
+	else: $AnimationPlayer.play("Idle")
+
+func _on_animation_player_animation_started(anim_name):
+	if anim_name == "Roll": is_rolling = true

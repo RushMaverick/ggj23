@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://b6yf33nqp0moq"]
 
-[ext_resource type="PackedScene" uid="uid://ggj7fc0t30n7" path="res://assets/turnip/turnip.glb" id="1_t55ud"]
+[ext_resource type="PackedScene" uid="uid://cq2qg0138n1y5" path="res://assets/turnip/turnip.glb" id="1_t55ud"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="2_jilhi"]
 [ext_resource type="PackedScene" uid="uid://c4m2cl0eidren" path="res://scenes/HUD.tscn" id="3_x7etn"]
 [ext_resource type="AudioStream" uid="uid://uyfo4kjd6e4r" path="res://assets/sound/turnip/TurnipPain2.wav" id="4_2tory"]
@@ -23,6 +23,7 @@ size = Vector3(0.846341, 0.609593, 0.799016)
 points = PackedVector3Array(0, 0, 0, 4, 1, 4, -4, 1, 4, -4, 0, 4, 4, 0, 4, 0, 1, 0)
 
 [node name="Player" groups=["player"] instance=ExtResource("1_t55ud")]
+process_mode = 3
 floor_block_on_wall = false
 script = ExtResource("2_jilhi")
 
@@ -30,6 +31,7 @@ script = ExtResource("2_jilhi")
 
 [node name="Skeleton3D" parent="Turnip" index="0"]
 bones/0/position = Vector3(0, 0.358893, 0)
+bones/0/rotation = Quaternion(-2.98023e-08, 1.19209e-07, 2.11758e-22, 1)
 bones/1/rotation = Quaternion(-0.000985254, -0.0579176, -0.998254, 0.0115726)
 bones/2/rotation = Quaternion(-0.130016, 0.000984339, -0.0163407, 0.991377)
 bones/3/rotation = Quaternion(0.00891549, -0.0479913, -0.987387, 0.150613)
@@ -118,8 +120,7 @@ bus = &"Turnip"
 [connection signal="stamina_changed" from="." to="HUD" method="_on_player_stamina_changed" flags=18]
 [connection signal="body_entered" from="Turnip/Hurtbox" to="." method="_on_hurtbox_body_entered" flags=18]
 [connection signal="body_exited" from="Turnip/Hurtbox" to="." method="_on_hurtbox_body_exited" flags=18]
-[connection signal="animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_animation_changed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished" flags=18]
-[connection signal="animation_started" from="AnimationPlayer" to="." method="_on_animation_player_animation_started" flags=18]
+[connection signal="animation_started" from="AnimationPlayer" to="." method="_on_animation_player_animation_started"]
 [connection signal="body_entered" from="TargetRange" to="." method="_on_target_range_body_entered" flags=18]
 [connection signal="body_exited" from="TargetRange" to="." method="_on_target_range_body_exited" flags=18]
