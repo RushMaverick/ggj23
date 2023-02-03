@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://cxmp8ggtdil6n"]
+
+[ext_resource type="PackedScene" uid="uid://b6yf33nqp0moq" path="res://scenes/Player.tscn" id="1_fsogf"]
+[ext_resource type="PackedScene" uid="uid://da7xiidgi54q3" path="res://scenes/Enemy.tscn" id="2_o1dhn"]
+[ext_resource type="PackedScene" uid="uid://dkgo5dcwkv256" path="res://scenes/FollowCamera.tscn" id="3_squ7i"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fcm8r"]
+size = Vector3(30, 1, 30)
+
+[sub_resource type="BoxMesh" id="BoxMesh_eljlk"]
+size = Vector3(30, 1, 30)
+
+[node name="Node" type="Node"]
+
+[node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, -0.507644, 2.08165e-12)
+constant_linear_velocity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_fcm8r")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("BoxMesh_eljlk")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.48668, 7.23125)
+shadow_enabled = true
+
+[node name="Box" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.69911, 0.53117, 0)
+
+[node name="Player" parent="." instance=ExtResource("1_fsogf")]
+
+[node name="Enemy" parent="." instance=ExtResource("2_o1dhn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="FollowCamera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_squ7i")]
+target = NodePath("../Player")
+
+[connection signal="moved" from="FollowCamera" to="Player" method="_on_follow_camera_moved"]

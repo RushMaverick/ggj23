@@ -44,7 +44,14 @@ func _ready():
 	sound_grunt.append($Sounds/Attack/TurnipGrunt5)
 	sound_grunt.append($Sounds/Attack/TurnipGrunt6)
 	sound_grunt.append($Sounds/Attack/TurnipGrunt7)
-	
+
+func _input(event):
+	if event.is_action_released("lock_enemy") and target_enemy:
+		unset_target_enemy()
+	if event.is_action_pressed("attack") and not is_rolling:
+		attack()
+	if event.is_action_pressed("roll") and not is_rolling:
+		roll()
 
 func _process(delta):
 	stamina = clamp(stamina + stamina_recovery_rate * delta, 0, max_stamina)
@@ -55,15 +62,6 @@ func _physics_process(delta):
 	var target_angle = $Turnip.rotation.y
 	if !target_enemy and Input.is_action_pressed("lock_enemy"):
 		find_target_enemy()
-	elif target_enemy and Input.is_action_just_released("lock_enemy"):
-		unset_target_enemy()
-	if Input.is_action_just_pressed("attack") && not is_rolling:
-		attack()
-	elif Input.is_action_just_pressed("roll") && not is_rolling:
-		$AnimationPlayer.play("Roll")
-		stamina -= roll_stamina_deduction
-		stamina = clamp(stamina - roll_stamina_deduction, 0, max_stamina)
-		emit_signal("stamina_changed", stamina)
 	if Input.is_action_pressed("forward"):
 		direction.z -= 1
 	if Input.is_action_pressed("back"):
@@ -145,6 +143,12 @@ func fall(delta):
 	falling_momentum += 0.05
 	velocity.y -= weight * falling_momentum * delta
 	move_and_slide()
+
+func roll():
+	$AnimationPlayer.play("Roll")
+	stamina -= roll_stamina_deduction
+	stamina = clamp(stamina - roll_stamina_deduction, 0, max_stamina)
+	emit_signal("stamina_changed", stamina)
 
 func _on_hurtbox_body_entered(body):
 	if (body.is_in_group("enemy")):
