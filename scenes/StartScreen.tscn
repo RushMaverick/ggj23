@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://b6pk15ppbye84"]
+[gd_scene load_steps=2 format=3 uid="uid://b6pk15ppbye84"]
 
 [ext_resource type="Script" path="res://scripts/StartScreen.gd" id="1_7m2ll"]
-[ext_resource type="VideoStream" path="res://videos/intro.ogv" id="2_n1ivt"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
