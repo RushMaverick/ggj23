@@ -27,6 +27,7 @@ var target_yaw
 var target_enemy = null
 var is_rolling: bool
 var is_falling: bool = false
+var is_running: bool = false
 var falling_momentum = 0
 var sound_pain = []
 var sound_grunt = []
@@ -64,6 +65,10 @@ func _physics_process(delta):
 	if !target_enemy and Input.is_action_pressed("lock_enemy"):
 		find_target_enemy()
 	if direction != Vector3.ZERO:
+		if !is_running:
+			is_running = true
+			if $AnimationPlayer.current_animation == "Idle":
+				$AnimationPlayer.play("Run")
 		direction = direction.normalized()
 		velocity = direction * movement_speed * delta
 		velocity = velocity.rotated(Vector3.UP, rotation.y)
@@ -77,6 +82,10 @@ func _physics_process(delta):
 		target_yaw = atan2(target_enemy_direction.x, target_enemy_direction.z)
 	rotation.y = lerp_angle(rotation.y, target_yaw, delta * lerp_speed)
 	if direction == Vector3.ZERO:
+		if is_running:
+			is_running = false
+			if $AnimationPlayer.current_animation == "Run":
+				$AnimationPlayer.play("Idle")
 		velocity = Vector3.ZERO
 	if is_on_floor():
 		if is_falling:
@@ -132,7 +141,6 @@ func attack():
 		rng.randomize()
 		sound_grunt[rng.randi_range(0,6)].play()
 		$AnimationPlayer.play("Attack")
-		$AnimationPlayer.queue("Idle")
 		for enemy in enemies_in_hurtbox:
 			if enemy: enemy.take_damage(damage)
 
@@ -149,7 +157,6 @@ func take_damage(amount):
 
 func roll():
 	$AnimationPlayer.play("Roll")
-	$AnimationPlayer.queue("Idle")
 	stamina -= roll_stamina_deduction
 	stamina = clamp(stamina - roll_stamina_deduction, 0, max_stamina)
 	emit_signal("stamina_changed", stamina)
@@ -178,3 +185,9 @@ func _on_target_range_body_exited(body):
 func _on_animation_player_animation_changed(old_name, new_name):
 	if old_name == "Roll": is_rolling = false
 	elif new_name == "Roll": is_rolling = true
+
+func _on_animation_player_animation_finished(anim_name):
+	if is_running:
+		$AnimationPlayer.play("Run")
+	else:
+		$AnimationPlayer.play("Idle")
