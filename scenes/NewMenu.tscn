@@ -1,12 +1,12 @@
-[gd_scene load_steps=31 format=3 uid="uid://ogosl1xmje1s"]
+[gd_scene load_steps=31 format=3 uid="uid://csifbtklwf6sq"]
 
 [ext_resource type="Script" path="res://scripts/MainMenu.gd" id="1_7m7vi"]
 [ext_resource type="Texture2D" uid="uid://cu2t47drhodo4" path="res://assets/turnip/turnip_texture.png" id="1_xft7p"]
 [ext_resource type="Texture2D" uid="uid://dedaprosdwkq" path="res://assets/turnip/turnip_face.png" id="2_j6cmn"]
 [ext_resource type="FontFile" uid="uid://dxnticsrgaxlm" path="res://assets/Cinzel_Decorative/CinzelDecorative-Bold.ttf" id="3_k3bpx"]
-[ext_resource type="AudioStream" uid="uid://dq7j4ylfd5qee" path="res://assets/sound/music/intro.mp3" id="3_w43gf"]
 [ext_resource type="Script" path="res://scenes/StartGameMenuItem.gd" id="4_ca7mc"]
-[ext_resource type="AudioStream" uid="uid://duhyhh5aa8wcr" path="res://assets/sound/music/intro_gong.mp3" id="4_or5gh"]
+[ext_resource type="AudioStream" uid="uid://dq7j4ylfd5qee" path="res://assets/sound/music/Menu.mp3" id="6_2irdu"]
+[ext_resource type="AudioStream" uid="uid://duhyhh5aa8wcr" path="res://assets/sound/music/MenuGong.mp3" id="7_liob1"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_wsue3"]
 size = Vector2(16, 16)
@@ -914,12 +914,12 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.676717, 2.37851, -2.47711)
 shape = SubResource("ConvexPolygonShape3D_h3j1t")
 
-[node name="IntroMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_w43gf")
+[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_2irdu")
 autoplay = true
 
-[node name="IntroGong" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_or5gh")
+[node name="MenuGong" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_liob1")
 autoplay = true
 
 [connection signal="mouse_entered" from="StartGameMenuItem" to="." method="_on_start_game_menu_item_mouse_entered"]
