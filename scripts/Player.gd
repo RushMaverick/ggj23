@@ -163,10 +163,13 @@ func take_damage(amount):
 		get_tree().change_scene_to_file("res://scenes/StartScreen.tscn")
 
 func jump():
+	if $AnimationPlayer.current_animation != "Local/jump_anim":
+		$AnimationPlayer.play("Local/jump_anim")
+
+func play_jmup_sound():
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
 	sound_grunt[rng.randi_range(0,6)].play()
-	$AnimationPlayer.play("Local/jump_anim")
 
 func roll():
 	var rng = RandomNumberGenerator.new()

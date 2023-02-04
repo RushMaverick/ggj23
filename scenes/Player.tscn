@@ -460,19 +460,20 @@ platform_floor_layers = 1
 platform_wall_layers = 1
 safe_margin = 0.01
 script = ExtResource("2_jilhi")
+jumping_momentum = 0.00543262
 
 [node name="HUD" parent="." index="0" instance=ExtResource("3_x7etn")]
 
 [node name="Skeleton3D" parent="Turnip" index="0"]
-bones/0/position = Vector3(0, 0.358893, 0)
-bones/0/rotation = Quaternion(-2.98023e-08, 1.19209e-07, 2.11758e-22, 1)
-bones/1/rotation = Quaternion(-0.000985254, -0.0579176, -0.998254, 0.0115726)
-bones/2/rotation = Quaternion(-0.130016, 0.000984339, -0.0163407, 0.991377)
-bones/3/rotation = Quaternion(0.00891549, -0.0479913, -0.987387, 0.150613)
+bones/0/position = Vector3(0, 0.358016, 0)
+bones/0/rotation = Quaternion(0.00665357, 1.19207e-07, 2.19078e-09, 0.999978)
+bones/1/rotation = Quaternion(-0.00119325, -0.0758633, -0.997051, 0.011553)
+bones/2/rotation = Quaternion(-0.221449, 0.00159255, -0.0160237, 0.975039)
+bones/3/rotation = Quaternion(-0.129422, -0.897732, -0.413935, 0.0773603)
 bones/4/rotation = Quaternion(0.237808, -0.0857023, 0.0157964, 0.967395)
-bones/5/rotation = Quaternion(-0.00153331, 0.0579239, 0.998253, 0.0115408)
-bones/6/rotation = Quaternion(-0.130029, -0.00122487, 0.0162296, 0.991377)
-bones/7/rotation = Quaternion(0.035618, 0.0439001, 0.986785, 0.151855)
+bones/5/rotation = Quaternion(-0.00174065, 0.0758696, 0.99705, 0.0115114)
+bones/6/rotation = Quaternion(-0.221463, -0.00182912, 0.0158345, 0.975039)
+bones/7/rotation = Quaternion(-0.118177, 0.89531, 0.417299, 0.101563)
 bones/8/rotation = Quaternion(0.237963, 0.148117, -0.0132634, 0.959823)
 bones/9/rotation = Quaternion(-0.0964418, 3.54704e-14, -2.29935e-08, 0.995339)
 bones/10/rotation = Quaternion(-0.341964, 1.41774e-14, -8.15306e-08, 0.939713)
