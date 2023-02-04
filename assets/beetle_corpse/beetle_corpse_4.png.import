@@ -2,37 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c75x0jdq4a0r8"
-path.s3tc="res://.godot/imported/beetle_corpse_4.png-7ed269607c0a0da99777b5088a54644e.s3tc.ctex"
-<<<<<<< HEAD
-path.etc2="res://.godot/imported/beetle_corpse_4.png-7ed269607c0a0da99777b5088a54644e.etc2.ctex"
+uid="uid://li48xowdmcmh"
+path="res://.godot/imported/beetle_corpse_4.png-7ed269607c0a0da99777b5088a54644e.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-=======
-metadata={
-"imported_formats": ["s3tc_bptc"],
->>>>>>> 36cad56b4a17cc0ca42eee52c11e953ae64a3e11
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/beetle_corpse/beetle_corpse_4.png"
-<<<<<<< HEAD
-dest_files=["res://.godot/imported/beetle_corpse_4.png-7ed269607c0a0da99777b5088a54644e.s3tc.ctex", "res://.godot/imported/beetle_corpse_4.png-7ed269607c0a0da99777b5088a54644e.etc2.ctex"]
-=======
-dest_files=["res://.godot/imported/beetle_corpse_4.png-7ed269607c0a0da99777b5088a54644e.s3tc.ctex"]
->>>>>>> 36cad56b4a17cc0ca42eee52c11e953ae64a3e11
+dest_files=["res://.godot/imported/beetle_corpse_4.png-7ed269607c0a0da99777b5088a54644e.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -42,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

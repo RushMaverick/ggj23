@@ -2,27 +2,18 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://v2bo65kq56ea"
+uid="uid://dljv34l06h50o"
 path.s3tc="res://.godot/imported/beetle_corpse_upper_body_Untitled.png-310664965fdc3bf5cb26b7943129250e.s3tc.ctex"
-<<<<<<< HEAD
 path.etc2="res://.godot/imported/beetle_corpse_upper_body_Untitled.png-310664965fdc3bf5cb26b7943129250e.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
-=======
-metadata={
-"imported_formats": ["s3tc_bptc"],
->>>>>>> 36cad56b4a17cc0ca42eee52c11e953ae64a3e11
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/beetle_corpse/beetle_corpse_upper_body_Untitled.png"
-<<<<<<< HEAD
 dest_files=["res://.godot/imported/beetle_corpse_upper_body_Untitled.png-310664965fdc3bf5cb26b7943129250e.s3tc.ctex", "res://.godot/imported/beetle_corpse_upper_body_Untitled.png-310664965fdc3bf5cb26b7943129250e.etc2.ctex"]
-=======
-dest_files=["res://.godot/imported/beetle_corpse_upper_body_Untitled.png-310664965fdc3bf5cb26b7943129250e.s3tc.ctex"]
->>>>>>> 36cad56b4a17cc0ca42eee52c11e953ae64a3e11
 
 [params]
 

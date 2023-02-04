@@ -2,27 +2,18 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fe1mdlqo8whm"
+uid="uid://bjfh2jymfyenq"
 path.s3tc="res://.godot/imported/beetle_6.png-b63622c4694c3f975c203610ab8346ee.s3tc.ctex"
-<<<<<<< HEAD
 path.etc2="res://.godot/imported/beetle_6.png-b63622c4694c3f975c203610ab8346ee.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
-=======
-metadata={
-"imported_formats": ["s3tc_bptc"],
->>>>>>> 36cad56b4a17cc0ca42eee52c11e953ae64a3e11
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/beetle/beetle_6.png"
-<<<<<<< HEAD
 dest_files=["res://.godot/imported/beetle_6.png-b63622c4694c3f975c203610ab8346ee.s3tc.ctex", "res://.godot/imported/beetle_6.png-b63622c4694c3f975c203610ab8346ee.etc2.ctex"]
-=======
-dest_files=["res://.godot/imported/beetle_6.png-b63622c4694c3f975c203610ab8346ee.s3tc.ctex"]
->>>>>>> 36cad56b4a17cc0ca42eee52c11e953ae64a3e11
 
 [params]
 
