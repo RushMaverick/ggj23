@@ -30,6 +30,18 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.69911, 0.53117, 0)
 
 [node name="Player" parent="." instance=ExtResource("1_fsogf")]
+max_health = 100
+max_stamina = 100
+stamina_recovery_rate = 10
+movement_speed = 300
+damage = 15
+hit_stamina_deduction = 3
+roll_stamina_deduction = 10
+hit_cooldown_ms = 250
+lerp_speed = 10
+weight = 300
+jumping_momentum = 0
+is_jumping = false
 
 [node name="Enemy" parent="." instance=ExtResource("2_o1dhn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
