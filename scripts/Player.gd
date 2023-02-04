@@ -52,7 +52,7 @@ func _ready():
 func _input(event):
 	if event.is_action_released("lock_enemy") and target_enemy:
 		unset_target_enemy()
-	if event.is_action_pressed("attack") and not is_rolling:
+	if event.is_action_pressed("attack") and not is_rolling and not is_jumping:
 		attack()
 	if event.is_action_pressed("roll") and not is_rolling and not is_jumping:
 		roll()

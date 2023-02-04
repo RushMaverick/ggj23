@@ -1,8 +1,8 @@
 [gd_scene load_steps=33 format=3 uid="uid://ogosl1xmje1s"]
 
 [ext_resource type="Script" path="res://scripts/MainMenu.gd" id="1_7m7vi"]
-[ext_resource type="Texture2D" uid="uid://cu2t47drhodo4" path="res://assets/turnip/turnip_texture.png" id="1_xft7p"]
-[ext_resource type="Texture2D" uid="uid://dedaprosdwkq" path="res://assets/turnip/turnip_face.png" id="2_j6cmn"]
+[ext_resource type="Texture2D" uid="uid://gxa4aw0bcyid" path="res://assets/turnip/turnip_texture.png" id="1_xft7p"]
+[ext_resource type="Texture2D" uid="uid://badbrbey4m0r1" path="res://assets/turnip/turnip_face.png" id="2_j6cmn"]
 [ext_resource type="FontFile" uid="uid://dxnticsrgaxlm" path="res://assets/Cinzel_Decorative/CinzelDecorative-Bold.ttf" id="3_k3bpx"]
 [ext_resource type="Script" path="res://scenes/StartGameMenuItem.gd" id="4_ca7mc"]
 [ext_resource type="AudioStream" uid="uid://dq7j4ylfd5qee" path="res://assets/sound/music/Menu.mp3" id="6_2irdu"]
