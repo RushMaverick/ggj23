@@ -3,16 +3,16 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cll3jlb3kxobb"
-path.s3tc="res://.godot/imported/menu_scene_texture.png-d480f645facb3e669e88e3c43ee22ac6.s3tc.ctex"
+path.etc2="res://.godot/imported/menu_scene_texture.png-d480f645facb3e669e88e3c43ee22ac6.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://videos/menu_scene_texture.png"
-dest_files=["res://.godot/imported/menu_scene_texture.png-d480f645facb3e669e88e3c43ee22ac6.s3tc.ctex"]
+dest_files=["res://.godot/imported/menu_scene_texture.png-d480f645facb3e669e88e3c43ee22ac6.etc2.ctex"]
 
 [params]
 
