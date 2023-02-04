@@ -3,16 +3,16 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dedaprosdwkq"
-path.etc2="res://.godot/imported/turnip_face.png-eafbdf30e97530bb2616eab3edd4ad04.etc2.ctex"
+path.s3tc="res://.godot/imported/turnip_face.png-eafbdf30e97530bb2616eab3edd4ad04.s3tc.ctex"
 metadata={
-"imported_formats": ["etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/turnip/turnip_face.png"
-dest_files=["res://.godot/imported/turnip_face.png-eafbdf30e97530bb2616eab3edd4ad04.etc2.ctex"]
+dest_files=["res://.godot/imported/turnip_face.png-eafbdf30e97530bb2616eab3edd4ad04.s3tc.ctex"]
 
 [params]
 
