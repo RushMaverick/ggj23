@@ -3,16 +3,16 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c75x0jdq4a0r8"
-path.etc2="res://.godot/imported/beetle_corpse_4.png-7ed269607c0a0da99777b5088a54644e.etc2.ctex"
+path.s3tc="res://.godot/imported/beetle_corpse_4.png-7ed269607c0a0da99777b5088a54644e.s3tc.ctex"
 metadata={
-"imported_formats": ["etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/beetle_corpse/beetle_corpse_4.png"
-dest_files=["res://.godot/imported/beetle_corpse_4.png-7ed269607c0a0da99777b5088a54644e.etc2.ctex"]
+dest_files=["res://.godot/imported/beetle_corpse_4.png-7ed269607c0a0da99777b5088a54644e.s3tc.ctex"]
 
 [params]
 
