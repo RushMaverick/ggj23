@@ -49,11 +49,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 func generate_random_angle():
-	var x = randf_range(0, 60)
-	var y = 0
-	var z = randf_range(0, 30)
 	target_angle = randf_range(0, 10) / randf_range(0, 10) * 3.14
-	
 	
 func take_damage(amount):
 	health -= amount
