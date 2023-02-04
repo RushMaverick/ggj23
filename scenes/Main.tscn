@@ -18,7 +18,7 @@ ssil_enabled = true
 volumetric_fog_enabled = true
 
 [sub_resource type="LabelSettings" id="LabelSettings_mi0gr"]
-font_size = 100
+font_size = 110
 font_color = Color(0.917647, 0.560784, 0.337255, 0.921569)
 
 [node name="Main" type="Node3D"]
@@ -39,10 +39,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.27688, 0)
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="score" type="Label" parent="Node2D"]
-offset_left = 1467.0
-offset_top = 14.0
-offset_right = 1900.0
-offset_bottom = 154.0
+offset_left = 30.0
+offset_top = 128.0
+offset_right = 463.0
+offset_bottom = 268.0
 size_flags_vertical = 0
 text = "Score = 0"
 label_settings = SubResource("LabelSettings_mi0gr")

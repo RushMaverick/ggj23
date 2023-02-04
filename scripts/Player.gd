@@ -10,9 +10,9 @@ signal enemy_target_unset
 @export var stamina_recovery_rate = 10
 @export var movement_speed = 300
 @export var damage = 15
-@export var hit_stamina_deduction = 15
-@export var roll_stamina_deduction = 30
-@export var hit_cooldown_ms = 400
+@export var hit_stamina_deduction = 3
+@export var roll_stamina_deduction = 10
+@export var hit_cooldown_ms = 250
 @export var lerp_speed = 10
 @export var weight = 300
 @export var jumping_momentum = 0
