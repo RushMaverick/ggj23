@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://3ipw6mbabo54"]
+[gd_scene load_steps=7 format=3 uid="uid://3ipw6mbabo54"]
 
 [ext_resource type="PackedScene" uid="uid://b6yf33nqp0moq" path="res://scenes/Player.tscn" id="1_fsogf"]
 [ext_resource type="PackedScene" uid="uid://da7xiidgi54q3" path="res://scenes/Enemy.tscn" id="2_o1dhn"]
 [ext_resource type="PackedScene" uid="uid://dkgo5dcwkv256" path="res://scenes/FollowCamera.tscn" id="3_squ7i"]
+[ext_resource type="PackedScene" uid="uid://b44p243da08c1" path="res://scenes/MusicPlayer.tscn" id="4_fi1i0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fcm8r"]
 size = Vector3(30, 1, 30)
@@ -37,5 +38,7 @@ visible = false
 
 [node name="FollowCamera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_squ7i")]
 target = NodePath("../Player")
+
+[node name="MusicPlayer" parent="." instance=ExtResource("4_fi1i0")]
 
 [connection signal="moved" from="FollowCamera" to="Player" method="_on_follow_camera_moved"]

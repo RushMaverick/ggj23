@@ -5,10 +5,19 @@ extends Node3D
 var previous_level_up = 0
 var prev_spawn_time = 0
 var enemies_to_spawn = 1
-
+var music = load("res://scripts/MusicPlayer.gd").new()
 var load_enemy = load("res://scenes/Enemy.tscn")
+var enemy_amt = 0
+signal the_signal
+
+func _ready():
+	self.connect("the_signal", music.fade_in)
+
 
 func _process(_delta):
+#	print(enemy_amt)
+#	if enemy_amt > 2:
+#		emit_signal("the_signal")
 	if Time.get_ticks_msec() - previous_level_up > level_timer:
 		if enemy_spawn_timer > 500:
 			enemy_spawn_timer -= 1000
@@ -25,3 +34,4 @@ func _process(_delta):
 					enemy.position.z = randf_range(0, 20)
 					enemy.position.y = 5
 					add_child(enemy)
+					enemy_amt += 1

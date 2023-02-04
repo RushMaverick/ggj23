@@ -33,6 +33,7 @@ var is_running: bool = false
 var falling_momentum = 0
 var sound_pain = []
 var sound_grunt = []
+var music = load("res://scripts/MusicPlayer.gd")
 
 func _ready():
 	yaw = rotation.y
