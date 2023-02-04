@@ -25,8 +25,8 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -956.0
-offset_top = -544.0
+offset_left = -961.0
+offset_top = -562.0
 offset_right = 964.0
 offset_bottom = 536.0
 pivot_offset = Vector2(958, 536)
@@ -40,9 +40,6 @@ icon_alignment = 1
 [node name="quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Quit"
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(4, -8)
 
 [node name="IntroMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_rof7v")
