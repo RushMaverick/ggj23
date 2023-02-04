@@ -3,16 +3,17 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://2b5rjuv31gyh"
+path.s3tc="res://.godot/imported/mushroom_sad_mushBase Color.png-6769756a58c6bd76d77192970a74bc70.s3tc.ctex"
 path.etc2="res://.godot/imported/mushroom_sad_mushBase Color.png-6769756a58c6bd76d77192970a74bc70.etc2.ctex"
 metadata={
-"imported_formats": ["etc2_astc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/mushroom_sad_mushBase Color.png"
-dest_files=["res://.godot/imported/mushroom_sad_mushBase Color.png-6769756a58c6bd76d77192970a74bc70.etc2.ctex"]
+dest_files=["res://.godot/imported/mushroom_sad_mushBase Color.png-6769756a58c6bd76d77192970a74bc70.s3tc.ctex", "res://.godot/imported/mushroom_sad_mushBase Color.png-6769756a58c6bd76d77192970a74bc70.etc2.ctex"]
 
 [params]
 

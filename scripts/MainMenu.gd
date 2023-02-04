@@ -16,7 +16,7 @@ func _input(event):
 	if event.is_action_pressed("attack") and is_quit_hovered:
 		get_tree().quit()
 	if event.is_action_pressed("attack") and is_start_hovered:
-		get_tree().change_scene_to_file("res://scenes/Main.tscn")
+		$ExitAnimationPlayer.play("Exit")
 
 func _physics_process(delta):
 	$StartGameMenuItem.position.z = lerp($StartGameMenuItem.position.z, start_z, hover_animation_speed * delta)
@@ -37,3 +37,6 @@ func _on_quit_menu_item_mouse_entered():
 func _on_quit_menu_item_mouse_exited():
 	is_quit_hovered = false
 	quit_z = 0.0
+
+func _on_exit_animation_player_animation_finished(_anim_name):
+	get_tree().change_scene_to_file("res://scenes/Main.tscn")

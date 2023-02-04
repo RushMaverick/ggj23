@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://ogosl1xmje1s"]
+[gd_scene load_steps=33 format=3 uid="uid://ogosl1xmje1s"]
 
 [ext_resource type="Script" path="res://scripts/MainMenu.gd" id="1_7m7vi"]
 [ext_resource type="Texture2D" uid="uid://cu2t47drhodo4" path="res://assets/turnip/turnip_texture.png" id="1_xft7p"]
@@ -714,6 +714,98 @@ font = ExtResource("3_k3bpx")
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_h3j1t"]
 points = PackedVector3Array(-0.217788, -0.0271672, -0.028496, 0.222696, 0.0706971, 0.0274405, 0.222696, 0.0357326, 0.0274405, 0.222696, 0.0706971, -0.028496, 0.194706, -0.0551354, -0.028496, -0.0584625, -0.0897596, 0.025, -0.196806, 0.0637009, 0.0274405, -0.168816, 0.0706971, -0.028496, 0.194706, -0.0551354, 0.0274405, -0.0560885, -0.0865936, -0.025, -0.203814, -0.0411431, 0.0274405, -0.224796, 0.0287365, -0.028496, -0.00105, -0.0888565, 0.0246989, -0.168816, 0.0706971, 0.0274405, -0.203814, -0.0411431, -0.028496, -0.00105, -0.0865936, -0.025, 0.222696, 0.0357326, -0.028496, -0.196806, 0.0637009, -0.028496, -0.205272, 0.0250779, 0.025, -0.224796, -0.0131913, -0.028496, -0.217788, 0.0427288, -0.028496, -0.205272, -0.0131913, 0.025)
 
+[sub_resource type="Animation" id="Animation_pa00n"]
+resource_name = "Exit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OmniLight3D:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [15.934, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("OmniLight3D2:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [15.934, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("OmniLight3D3:light_energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [15.934, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("OmniLight3D4:light_energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [15.934, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("turnip:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.901335, 1.93464, -2.0983), Vector3(0.901, 1.935, -50)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("StartGameMenuItem:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(2.08165e-12, 2.08165e-12, -50)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("QuitMenuItem:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(2.08165e-12, 2.08165e-12, -50)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_83u8p"]
+_data = {
+"Exit": SubResource("Animation_pa00n")
+}
+
 [node name="MainMenu" type="Node3D"]
 script = ExtResource("1_7m7vi")
 
@@ -922,7 +1014,13 @@ autoplay = true
 stream = ExtResource("4_or5gh")
 autoplay = true
 
+[node name="ExitAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_83u8p")
+}
+
 [connection signal="mouse_entered" from="StartGameMenuItem" to="." method="_on_start_game_menu_item_mouse_entered"]
 [connection signal="mouse_exited" from="StartGameMenuItem" to="." method="_on_start_game_menu_item_mouse_exited"]
 [connection signal="mouse_entered" from="QuitMenuItem" to="." method="_on_quit_menu_item_mouse_entered"]
 [connection signal="mouse_exited" from="QuitMenuItem" to="." method="_on_quit_menu_item_mouse_exited"]
+[connection signal="animation_finished" from="ExitAnimationPlayer" to="." method="_on_exit_animation_player_animation_finished"]
