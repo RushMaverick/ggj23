@@ -4,16 +4,25 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cu2t47drhodo4"
 path.s3tc="res://.godot/imported/turnip_texture.png-3bf8b2f0b6d53a17fdeb8ec935763513.s3tc.ctex"
+<<<<<<< HEAD
 path.etc2="res://.godot/imported/turnip_texture.png-3bf8b2f0b6d53a17fdeb8ec935763513.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
+=======
+metadata={
+"imported_formats": ["s3tc_bptc"],
+>>>>>>> 36cad56b4a17cc0ca42eee52c11e953ae64a3e11
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/turnip/turnip_texture.png"
+<<<<<<< HEAD
 dest_files=["res://.godot/imported/turnip_texture.png-3bf8b2f0b6d53a17fdeb8ec935763513.s3tc.ctex", "res://.godot/imported/turnip_texture.png-3bf8b2f0b6d53a17fdeb8ec935763513.etc2.ctex"]
+=======
+dest_files=["res://.godot/imported/turnip_texture.png-3bf8b2f0b6d53a17fdeb8ec935763513.s3tc.ctex"]
+>>>>>>> 36cad56b4a17cc0ca42eee52c11e953ae64a3e11
 
 [params]
 

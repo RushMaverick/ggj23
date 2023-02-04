@@ -4,16 +4,25 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://diev4v08733hw"
 path.s3tc="res://.godot/imported/mushrooms2_mossBase Color.png-43aa24f1ec15fd9e2bb44f1fd194ce85.s3tc.ctex"
+<<<<<<< HEAD
 path.etc2="res://.godot/imported/mushrooms2_mossBase Color.png-43aa24f1ec15fd9e2bb44f1fd194ce85.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
+=======
+metadata={
+"imported_formats": ["s3tc_bptc"],
+>>>>>>> 36cad56b4a17cc0ca42eee52c11e953ae64a3e11
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/mushrooms2_mossBase Color.png"
+<<<<<<< HEAD
 dest_files=["res://.godot/imported/mushrooms2_mossBase Color.png-43aa24f1ec15fd9e2bb44f1fd194ce85.s3tc.ctex", "res://.godot/imported/mushrooms2_mossBase Color.png-43aa24f1ec15fd9e2bb44f1fd194ce85.etc2.ctex"]
+=======
+dest_files=["res://.godot/imported/mushrooms2_mossBase Color.png-43aa24f1ec15fd9e2bb44f1fd194ce85.s3tc.ctex"]
+>>>>>>> 36cad56b4a17cc0ca42eee52c11e953ae64a3e11
 
 [params]
 

@@ -4,16 +4,25 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bld2usa4d3f3y"
 path.s3tc="res://.godot/imported/mushroom_sad_4.png-6677f435e273ecdc52e1b65af9a48462.s3tc.ctex"
+<<<<<<< HEAD
 path.etc2="res://.godot/imported/mushroom_sad_4.png-6677f435e273ecdc52e1b65af9a48462.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
+=======
+metadata={
+"imported_formats": ["s3tc_bptc"],
+>>>>>>> 36cad56b4a17cc0ca42eee52c11e953ae64a3e11
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/mushroom_sad_4.png"
+<<<<<<< HEAD
 dest_files=["res://.godot/imported/mushroom_sad_4.png-6677f435e273ecdc52e1b65af9a48462.s3tc.ctex", "res://.godot/imported/mushroom_sad_4.png-6677f435e273ecdc52e1b65af9a48462.etc2.ctex"]
+=======
+dest_files=["res://.godot/imported/mushroom_sad_4.png-6677f435e273ecdc52e1b65af9a48462.s3tc.ctex"]
+>>>>>>> 36cad56b4a17cc0ca42eee52c11e953ae64a3e11
 
 [params]
 
