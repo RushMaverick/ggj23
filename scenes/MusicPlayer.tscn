@@ -1,12 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dpwxwoad7tqcg"]
+[gd_scene load_steps=8 format=3 uid="uid://b44p243da08c1"]
 
-[ext_resource type="Script" path="res://scenes/MusicPlayer.gd" id="1_5xb30"]
+[ext_resource type="Script" path="res://scripts/MusicPlayer.gd" id="1_ucpj1"]
 [ext_resource type="AudioStream" uid="uid://cjjxyfjlsq7oi" path="res://assets/sound/music/MusicPercLayer1.mp3" id="2_1x16v"]
 [ext_resource type="AudioStream" uid="uid://c3g2dr0n0cb7l" path="res://assets/sound/music/MusicPercLayer2.mp3" id="3_4aw5f"]
 [ext_resource type="AudioStream" uid="uid://gg0hdjrulj4s" path="res://assets/sound/music/MusicPercLayer3.mp3" id="4_g7gha"]
-
-[sub_resource type="Animation" id="Animation_1leu4"]
-resource_name = "new_animation_2"
 
 [sub_resource type="Animation" id="Animation_7xlvc"]
 resource_name = "MainMusic"
@@ -57,6 +54,9 @@ tracks/2/keys = {
 }
 tracks/2/use_blend = true
 
+[sub_resource type="Animation" id="Animation_1leu4"]
+resource_name = "new_animation_2"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3koxi"]
 _data = {
 "MainMusic": SubResource("Animation_7xlvc"),
@@ -64,15 +64,16 @@ _data = {
 }
 
 [node name="MusicPlayer" type="Node2D"]
-script = ExtResource("1_5xb30")
+script = ExtResource("1_ucpj1")
 
 [node name="DrumLayer1" type="AudioStreamPlayer" parent="."]
-volume_db = -1.297
+volume_db = -80.0
 autoplay = true
 bus = &"Music"
 
 [node name="DrumLayer2" type="AudioStreamPlayer" parent="."]
-volume_db = -80.0
+unique_name_in_owner = true
+volume_db = -53.766
 autoplay = true
 bus = &"Music"
 

@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b6yf33nqp0moq" path="res://scenes/Player.tscn" id="2_jotrt"]
 [ext_resource type="Script" path="res://scripts/World.gd" id="2_ybc3b"]
 [ext_resource type="PackedScene" uid="uid://dkgo5dcwkv256" path="res://scenes/FollowCamera.tscn" id="3_shxn7"]
-[ext_resource type="PackedScene" uid="uid://dpwxwoad7tqcg" path="res://scenes/MusicPlayer.tscn" id="6_47qcq"]
+[ext_resource type="PackedScene" uid="uid://b44p243da08c1" path="res://scenes/MusicPlayer.tscn" id="6_47qcq"]
 [ext_resource type="Script" path="res://scripts/score.gd" id="6_c6o7k"]
 
 [sub_resource type="GDScript" id="GDScript_nmbtp"]
@@ -12,6 +12,8 @@ script/source = "extends Node3D
 
 func _ready():
 	$MusicPlayer/MusicPlayer.play(\"MainMusic\")
+
+
 "
 
 [sub_resource type="Environment" id="Environment_fiood"]
@@ -39,18 +41,6 @@ target = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("2_jotrt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.27688, 0)
-max_health = 100
-max_stamina = 100
-stamina_recovery_rate = 10
-movement_speed = 300
-damage = 15
-hit_stamina_deduction = 3
-roll_stamina_deduction = 10
-hit_cooldown_ms = 250
-lerp_speed = 10
-weight = 300
-jumping_momentum = 0
-is_jumping = false
 
 [node name="Node2D" type="Node2D" parent="."]
 
