@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://w30w8c4mf064"
-path.s3tc="res://.godot/imported/turnip_14.png-160fdf974b45f9d48e5f72bfbac06cd1.s3tc.ctex"
+uid="uid://cvxf5iq6bpkcc"
+path.s3tc="res://.godot/imported/menu_scene_face.png-17a6dc4006828234a438b04387951564.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/turnip/turnip_14.png"
-dest_files=["res://.godot/imported/turnip_14.png-160fdf974b45f9d48e5f72bfbac06cd1.s3tc.ctex"]
+source_file="res://videos/menu_scene_face.png"
+dest_files=["res://.godot/imported/menu_scene_face.png-17a6dc4006828234a438b04387951564.s3tc.ctex"]
 
 [params]
 

@@ -4,23 +4,22 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dnnir1tv4d8sk"
 path.s3tc="res://.godot/imported/beetle_corpse_Untitled.png-192e0a3966750b9b213f6111a900fba6.s3tc.ctex"
-path.etc2="res://.godot/imported/beetle_corpse_Untitled.png-192e0a3966750b9b213f6111a900fba6.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc", "etc2"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/beetle_corpse/beetle_corpse_Untitled.png"
-dest_files=["res://.godot/imported/beetle_corpse_Untitled.png-192e0a3966750b9b213f6111a900fba6.s3tc.ctex", "res://.godot/imported/beetle_corpse_Untitled.png-192e0a3966750b9b213f6111a900fba6.etc2.ctex"]
+dest_files=["res://.godot/imported/beetle_corpse_Untitled.png-192e0a3966750b9b213f6111a900fba6.s3tc.ctex"]
 
 [params]
 
 compress/mode=2
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true

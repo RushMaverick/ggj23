@@ -41,13 +41,13 @@ func _ready():
 	sound_pain.append($Sounds/Pain/TurnipPain2)
 	sound_pain.append($Sounds/Pain/TurnipPain3)
 	sound_pain.append($Sounds/Pain/TurnipPain4)
-	sound_grunt.append($Sounds/Attack/TurnipGrunt1)
-	sound_grunt.append($Sounds/Attack/TurnipGrunt2)
-	sound_grunt.append($Sounds/Attack/TurnipGrunt3)
-	sound_grunt.append($Sounds/Attack/TurnipGrunt4)
-	sound_grunt.append($Sounds/Attack/TurnipGrunt5)
-	sound_grunt.append($Sounds/Attack/TurnipGrunt6)
-	sound_grunt.append($Sounds/Attack/TurnipGrunt7)
+	sound_grunt.append($Sounds/Grunts/TurnipGrunt1)
+	sound_grunt.append($Sounds/Grunts/TurnipGrunt2)
+	sound_grunt.append($Sounds/Grunts/TurnipGrunt3)
+	sound_grunt.append($Sounds/Grunts/TurnipGrunt4)
+	sound_grunt.append($Sounds/Grunts/TurnipGrunt5)
+	sound_grunt.append($Sounds/Grunts/TurnipGrunt6)
+	sound_grunt.append($Sounds/Grunts/TurnipGrunt7)
 
 func _input(event):
 	if event.is_action_released("lock_enemy") and target_enemy:
@@ -163,9 +163,15 @@ func take_damage(amount):
 		get_tree().change_scene_to_file("res://scenes/StartScreen.tscn")
 
 func jump():
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+	sound_grunt[rng.randi_range(0,6)].play()
 	$AnimationPlayer.play("Local/jump_anim")
 
 func roll():
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+	sound_grunt[rng.randi_range(0,6)].play()
 	$AnimationPlayer.play("Roll")
 	stamina -= roll_stamina_deduction
 	stamina = clamp(stamina - roll_stamina_deduction, 0, max_stamina)
