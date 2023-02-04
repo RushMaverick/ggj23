@@ -1,7 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://ogosl1xmje1s"]
+[gd_scene load_steps=29 format=3 uid="uid://ogosl1xmje1s"]
 
+[ext_resource type="Script" path="res://scripts/MainMenu.gd" id="1_7m7vi"]
 [ext_resource type="Texture2D" uid="uid://cu2t47drhodo4" path="res://assets/turnip/turnip_texture.png" id="1_xft7p"]
 [ext_resource type="Texture2D" uid="uid://dedaprosdwkq" path="res://assets/turnip/turnip_face.png" id="2_j6cmn"]
+[ext_resource type="FontFile" uid="uid://dxnticsrgaxlm" path="res://assets/Cinzel_Decorative/CinzelDecorative-Bold.ttf" id="3_k3bpx"]
+[ext_resource type="Script" path="res://scenes/StartGameMenuItem.gd" id="4_ca7mc"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_wsue3"]
 size = Vector2(16, 16)
@@ -695,31 +698,46 @@ _data = {
 "Run": SubResource("Animation_al8od")
 }
 
-[node name="Node3D" type="Node3D"]
+[sub_resource type="TextMesh" id="TextMesh_7m3wx"]
+text = "Start Game"
+font = ExtResource("3_k3bpx")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_m54ys"]
+points = PackedVector3Array(-0.527177, -0.0732164, -0.033477, 0.523677, 0.0793627, 0.0343389, 0.540777, -0.00540714, 0.0343389, -0.544277, -0.0562558, 0.0343389, -0.510289, 0.0793627, -0.033477, 0.540777, -0.0562558, -0.033477, 0.523677, 0.0793627, -0.033477, -0.510289, 0.0793627, 0.0343389, 0.218638, -0.090177, 0.0343389, 0.218638, -0.090177, -0.033477, 0.540777, -0.0562558, 0.0343389, -0.527177, -0.0732164, 0.0343389, -0.544277, 0.0115203, -0.033477, -0.544277, 0.0115203, 0.0343389, 0.150769, -0.090177, 0.0343389, -0.544277, -0.0562558, -0.033477, 0.150769, -0.090177, -0.033477, -0.527177, 0.0624021, 0.0343389, 0.540777, -0.00540714, -0.033477, -0.527177, 0.0624021, -0.033477)
+
+[sub_resource type="TextMesh" id="TextMesh_1npor"]
+text = "Quit"
+font = ExtResource("3_k3bpx")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_h3j1t"]
+points = PackedVector3Array(-0.217788, -0.0271672, -0.028496, 0.222696, 0.0706971, 0.0274405, 0.222696, 0.0357326, 0.0274405, 0.222696, 0.0706971, -0.028496, 0.194706, -0.0551354, -0.028496, -0.0584625, -0.0897596, 0.025, -0.196806, 0.0637009, 0.0274405, -0.168816, 0.0706971, -0.028496, 0.194706, -0.0551354, 0.0274405, -0.0560885, -0.0865936, -0.025, -0.203814, -0.0411431, 0.0274405, -0.224796, 0.0287365, -0.028496, -0.00105, -0.0888565, 0.0246989, -0.168816, 0.0706971, 0.0274405, -0.203814, -0.0411431, -0.028496, -0.00105, -0.0865936, -0.025, 0.222696, 0.0357326, -0.028496, -0.196806, 0.0637009, -0.028496, -0.205272, 0.0250779, 0.025, -0.224796, -0.0131913, -0.028496, -0.217788, 0.0427288, -0.028496, -0.205272, -0.0131913, 0.025)
+
+[node name="MainMenu" type="Node3D"]
+script = ExtResource("1_7m7vi")
 
 [node name="menu_scene" type="Node3D" parent="."]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="menu_scene"]
+[node name="BackPlaneMesh" type="MeshInstance3D" parent="menu_scene"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.957959, -15.4329)
 mesh = SubResource("PlaneMesh_wsue3")
 surface_material_override/0 = SubResource("ORMMaterial3D_o6tm1")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="menu_scene"]
+[node name="RightPlaneMesh" type="MeshInstance3D" parent="menu_scene"]
 transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 8, 0, -8.00545)
 mesh = SubResource("PlaneMesh_wsue3")
 surface_material_override/0 = SubResource("ORMMaterial3D_o6tm1")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="menu_scene"]
+[node name="LeftPlaneMesh" type="MeshInstance3D" parent="menu_scene"]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -8, 0, -8.00545)
 mesh = SubResource("PlaneMesh_wsue3")
 surface_material_override/0 = SubResource("ORMMaterial3D_o6tm1")
 
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="menu_scene"]
+[node name="TopPlaneMesh" type="MeshInstance3D" parent="menu_scene"]
 transform = Transform3D(1.91069e-15, -8.74228e-08, -1, 4.37114e-08, -1, 8.74228e-08, -1, -4.37114e-08, 1.91069e-15, -0.00283623, 7, -8.00545)
 mesh = SubResource("PlaneMesh_wsue3")
 surface_material_override/0 = SubResource("ORMMaterial3D_o6tm1")
 
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="menu_scene"]
+[node name="BottomPlaneMesh" type="MeshInstance3D" parent="menu_scene"]
 transform = Transform3D(1.91069e-15, 6.38312e-37, 1, -4.37114e-08, 1, 9.57468e-37, -1, -4.37114e-08, 1.91069e-15, -0.00283623, -6.70113, -8.00545)
 mesh = SubResource("PlaneMesh_wsue3")
 surface_material_override/0 = SubResource("ORMMaterial3D_o6tm1")
@@ -746,7 +764,7 @@ light_energy = 15.934
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.71199, 4.90226, 0)
-light_color = Color(0.635294, 0.305882, 0.141176, 1)
+light_color = Color(0.835806, 0.433696, 0.239487, 1)
 light_energy = 15.934
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="."]
@@ -760,7 +778,7 @@ light_color = Color(0.635294, 0.305882, 0.141176, 1)
 light_energy = 15.934
 
 [node name="turnip" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.63354, -2.0983)
+transform = Transform3D(0.982447, 0, -0.186541, 0, 1, 0, 0.186541, 0, 0.982447, 0.901335, 1.93464, -2.0983)
 
 [node name="Turnip" type="Node3D" parent="turnip"]
 
@@ -870,3 +888,31 @@ autoplay = "Idle"
 libraries = {
 "": SubResource("AnimationLibrary_svlj4")
 }
+
+[node name="StartGameMenuItem" type="StaticBody3D" parent="."]
+script = ExtResource("4_ca7mc")
+
+[node name="StartGameMenuItemMesh" type="MeshInstance3D" parent="StartGameMenuItem"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.676717, 2.81707, -2.47711)
+mesh = SubResource("TextMesh_7m3wx")
+skeleton = NodePath("../..")
+
+[node name="StartGameCollisionShape" type="CollisionShape3D" parent="StartGameMenuItem"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.676717, 2.81707, -2.47711)
+shape = SubResource("ConvexPolygonShape3D_m54ys")
+
+[node name="QuitMenuItem" type="StaticBody3D" parent="."]
+
+[node name="QuitMenuItemMesh" type="MeshInstance3D" parent="QuitMenuItem"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.676717, 2.37851, -2.47711)
+mesh = SubResource("TextMesh_1npor")
+skeleton = NodePath("../..")
+
+[node name="QuitMenuItemCollisionShape" type="CollisionShape3D" parent="QuitMenuItem"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.676717, 2.37851, -2.47711)
+shape = SubResource("ConvexPolygonShape3D_h3j1t")
+
+[connection signal="mouse_entered" from="StartGameMenuItem" to="." method="_on_start_game_menu_item_mouse_entered"]
+[connection signal="mouse_exited" from="StartGameMenuItem" to="." method="_on_start_game_menu_item_mouse_exited"]
+[connection signal="mouse_entered" from="QuitMenuItem" to="." method="_on_quit_menu_item_mouse_entered"]
+[connection signal="mouse_exited" from="QuitMenuItem" to="." method="_on_quit_menu_item_mouse_exited"]
