@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b6yf33nqp0moq"]
+[gd_scene load_steps=26 format=3 uid="uid://b6yf33nqp0moq"]
 
 [ext_resource type="PackedScene" uid="uid://cq2qg0138n1y5" path="res://assets/turnip/turnip.glb" id="1_t55ud"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="2_jilhi"]
@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://vljgx4hcddwk" path="res://assets/sound/turnip/TurnipGrunt5.wav" id="11_8h0ym"]
 [ext_resource type="AudioStream" uid="uid://mpqxpvhulkib" path="res://assets/sound/turnip/TurnipGrunt6.wav" id="12_p3iy1"]
 [ext_resource type="AudioStream" uid="uid://dpfn687grhmna" path="res://assets/sound/turnip/TurnipGrunt7.wav" id="13_ctwyl"]
+[ext_resource type="AudioStream" uid="uid://cnsijkajy7d52" path="res://assets/sound/turnip/TurnipDeath.wav" id="16_k5w6l"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hhea5"]
 size = Vector3(0.846341, 0.609593, 0.799016)
@@ -554,6 +555,9 @@ bus = &"Turnip"
 stream = ExtResource("13_ctwyl")
 bus = &"Turnip"
 
+[node name="TurnipDeath" type="AudioStreamPlayer" parent="Sounds" index="2"]
+stream = ExtResource("16_k5w6l")
+
 [connection signal="health_changed" from="." to="HUD" method="_on_player_health_changed" flags=18]
 [connection signal="stamina_changed" from="." to="HUD" method="_on_player_stamina_changed" flags=18]
 [connection signal="body_entered" from="Turnip/Hurtbox" to="." method="_on_hurtbox_body_entered" flags=18]
@@ -562,3 +566,4 @@ bus = &"Turnip"
 [connection signal="animation_started" from="AnimationPlayer" to="." method="_on_animation_player_animation_started"]
 [connection signal="body_entered" from="TargetRange" to="." method="_on_target_range_body_entered" flags=18]
 [connection signal="body_exited" from="TargetRange" to="." method="_on_target_range_body_exited" flags=18]
+[connection signal="finished" from="Sounds/TurnipDeath" to="." method="_on_turnip_death_finished"]

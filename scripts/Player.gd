@@ -4,6 +4,7 @@ signal health_changed(new_health)
 signal stamina_changed(new_stamina)
 signal enemy_target_set
 signal enemy_target_unset
+signal died
 
 @export var max_health = 100
 @export var max_stamina = 100
@@ -162,8 +163,9 @@ func take_damage(amount):
 	health = clamp(health - amount, 0, max_health)
 	emit_signal("health_changed", health)
 	if health <= 0:
-		queue_free()
-		get_tree().change_scene_to_file("res://scenes/YouDied.tscn")
+		is_rolling = true
+		emit_signal("died")
+		$Sounds/TurnipDeath.play()
 
 func jump():
 	if $AnimationPlayer.current_animation != "Local/jump_anim":
@@ -211,3 +213,7 @@ func _on_animation_player_animation_finished(anim_name):
 
 func _on_animation_player_animation_started(anim_name):
 	if anim_name == "Roll": is_rolling = true
+
+func _on_turnip_death_finished():
+	queue_free()
+	get_tree().change_scene_to_file("res://scenes/YouDied.tscn")

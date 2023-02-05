@@ -38,5 +38,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.27688, 0)
 [node name="MusicPlayer" parent="." instance=ExtResource("6_47qcq")]
 
 [connection signal="moved" from="FollowCamera" to="Player" method="_on_follow_camera_moved"]
+[connection signal="died" from="Player" to="FollowCamera" method="_on_player_died"]
 [connection signal="enemy_target_set" from="Player" to="FollowCamera" method="_on_player_enemy_target_set"]
 [connection signal="enemy_target_unset" from="Player" to="FollowCamera" method="_on_player_enemy_target_unset"]

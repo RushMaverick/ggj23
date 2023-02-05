@@ -47,3 +47,7 @@ func _on_player_enemy_target_set():
 
 func _on_player_enemy_target_unset():
 	camera_mode = CAMERA_MODE.FOLLOW
+
+
+func _on_player_died():
+	fade_out()
