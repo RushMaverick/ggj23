@@ -161,7 +161,7 @@ func take_damage(amount):
 	emit_signal("health_changed", health)
 	if health <= 0:
 		queue_free()
-		get_tree().change_scene_to_file("res://scenes/StartScreen.tscn")
+		get_tree().change_scene_to_file("res://scenes/YouDied.tscn")
 
 func jump():
 	if $AnimationPlayer.current_animation != "Local/jump_anim":

@@ -12,8 +12,6 @@ script/source = "extends Node3D
 
 func _ready():
 	$MusicPlayer/MusicPlayer.play(\"MainMusic\")
-
-
 "
 
 [sub_resource type="Environment" id="Environment_fiood"]

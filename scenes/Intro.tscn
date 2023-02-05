@@ -1,6 +1,7 @@
-[gd_scene load_steps=66 format=3 uid="uid://dbadgcoilva1j"]
+[gd_scene load_steps=67 format=3 uid="uid://dbadgcoilva1j"]
 
 [ext_resource type="Texture2D" uid="uid://mjyhmldovp1j" path="res://assets/world/world_8.png" id="1_l0a87"]
+[ext_resource type="Script" path="res://scripts/Intro.gd" id="1_lprbj"]
 [ext_resource type="AudioStream" uid="uid://ch1k4j2hx0m7w" path="res://assets/sound/music/IntroSequence.mp3" id="2_dfk68"]
 [ext_resource type="Texture2D" uid="uid://gxa4aw0bcyid" path="res://assets/turnip/turnip_texture.png" id="3_b5okl"]
 [ext_resource type="Texture2D" uid="uid://badbrbey4m0r1" path="res://assets/turnip/turnip_face.png" id="4_ouukg"]
@@ -1214,6 +1215,7 @@ distance_fade_mode = 1
 distance_fade_max_distance = 0.5
 
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_lprbj")
 
 [node name="World" type="Node3D" parent="."]
 
@@ -1505,3 +1507,5 @@ transform = Transform3D(-0.933172, 0.357365, 0.0384853, 0.0304196, 0.185211, -0.
 visible = false
 mesh = SubResource("PlaneMesh_t7dyd")
 surface_material_override/0 = SubResource("ORMMaterial3D_f5x0a")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
