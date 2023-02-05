@@ -3,7 +3,7 @@ extends CharacterBody3D
 @export var health = 50
 @export var move_speed_walk = 100
 @export var move_speed_charge = 200
-@export var damage = 5
+@export var damage = 10
 @export var bite_distance = 1
 @export var charge_distance = 6
 @export var weight = 300
