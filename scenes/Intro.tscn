@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://dbadgcoilva1j"]
+[gd_scene load_steps=70 format=3 uid="uid://dbadgcoilva1j"]
 
 [ext_resource type="Texture2D" uid="uid://mjyhmldovp1j" path="res://assets/world/world_8.png" id="1_l0a87"]
 [ext_resource type="Script" path="res://scripts/Intro.gd" id="1_lprbj"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://gxa4aw0bcyid" path="res://assets/turnip/turnip_texture.png" id="3_b5okl"]
 [ext_resource type="Texture2D" uid="uid://badbrbey4m0r1" path="res://assets/turnip/turnip_face.png" id="4_ouukg"]
 [ext_resource type="PackedScene" uid="uid://4pxtnsb1facu" path="res://assets/beetle/beetle.glb" id="5_wskfe"]
+[ext_resource type="PackedScene" uid="uid://q2k4om7d8phj" path="res://assets/mushhouse/mushhouse_blue.glb" id="7_m4mj1"]
+[ext_resource type="PackedScene" uid="uid://m4t2vnd57l0d" path="res://assets/mushhouse/mushhouse_green.glb" id="8_d34gq"]
+[ext_resource type="PackedScene" uid="uid://cwsehhg5awpfc" path="res://assets/mushhouse/mushhouse_red.glb" id="9_aerb7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_desjr"]
 resource_name = "root"
@@ -506,6 +509,7 @@ tracks/2/keys = {
 }],
 "times": PackedFloat32Array(0)
 }
+tracks/2/use_blend = true
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
@@ -1509,6 +1513,15 @@ mesh = SubResource("PlaneMesh_t7dyd")
 surface_material_override/0 = SubResource("ORMMaterial3D_f5x0a")
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="mushhouse_blue" parent="." instance=ExtResource("7_m4mj1")]
+transform = Transform3D(-0.290468, 0, 0.956885, 0, 1, 0, -0.956885, 0, -0.290468, -12.3088, -1.83476, 0)
+
+[node name="mushhouse_green" parent="." instance=ExtResource("8_d34gq")]
+transform = Transform3D(0.179077, 0, 0.983835, 0, 1, 0, -0.983835, 0, 0.179077, -1.7863, -2.07306, -12.5953)
+
+[node name="mushhouse_red" parent="." instance=ExtResource("9_aerb7")]
+transform = Transform3D(-0.496171, 0, 0.868225, 0, 1, 0, -0.868225, 0, -0.496171, -9.76927, -1.73585, 9.32368)
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
