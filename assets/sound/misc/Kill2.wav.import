@@ -2,7 +2,11 @@
 
 importer="wav"
 type="AudioStreamWAV"
+<<<<<<< HEAD
 uid="uid://cckfxtvmlmnjg"
+=======
+uid="uid://dhb34nejtfrli"
+>>>>>>> b785de54ac081d9b270d35e56002fa7a1823233b
 path="res://.godot/imported/Kill2.wav-5e058b4c994880aea1066d0d16ee83c6.sample"
 
 [deps]

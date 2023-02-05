@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b6yf33nqp0moq" path="res://scenes/Player.tscn" id="2_jotrt"]
 [ext_resource type="Script" path="res://scripts/World.gd" id="2_ybc3b"]
 [ext_resource type="PackedScene" uid="uid://dkgo5dcwkv256" path="res://scenes/FollowCamera.tscn" id="3_shxn7"]
-[ext_resource type="PackedScene" uid="uid://b44p243da08c1" path="res://scenes/MusicPlayer.tscn" id="6_47qcq"]
+[ext_resource type="PackedScene" path="res://scenes/MusicPlayer.tscn" id="6_47qcq"]
 [ext_resource type="Script" path="res://scripts/score.gd" id="6_c6o7k"]
 
 [sub_resource type="GDScript" id="GDScript_nmbtp"]
