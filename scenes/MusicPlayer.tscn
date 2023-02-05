@@ -67,7 +67,6 @@ _data = {
 script = ExtResource("1_ucpj1")
 
 [node name="DrumLayer1" type="AudioStreamPlayer" parent="."]
-volume_db = -80.0
 autoplay = true
 bus = &"Music"
 

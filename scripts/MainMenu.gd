@@ -10,12 +10,18 @@ var is_start_hovered: bool = false
 var is_quit_hovered: bool = false
 
 func _ready():
+	$MenuMusic.set_volume_db(0)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func _input(event):
 	if event.is_action_pressed("attack") and is_quit_hovered:
 		get_tree().quit()
 	if event.is_action_pressed("attack") and is_start_hovered:
+		var fade_music = create_tween()
+		var fade_gong = create_tween()
+		fade_music.tween_property($MenuMusic, "volume_db", -80, 2)
+		fade_gong.tween_property($MenuGong, "volume_db", -80, 2)
+		$MenuStinger.play()
 		$ExitAnimationPlayer.play("Exit")
 
 func _physics_process(delta):

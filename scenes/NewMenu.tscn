@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://ogosl1xmje1s"]
+[gd_scene load_steps=34 format=3 uid="uid://ogosl1xmje1s"]
 
 [ext_resource type="Script" path="res://scripts/MainMenu.gd" id="1_7m7vi"]
 [ext_resource type="Texture2D" uid="uid://gxa4aw0bcyid" path="res://assets/turnip/turnip_texture.png" id="1_xft7p"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scenes/StartGameMenuItem.gd" id="4_ca7mc"]
 [ext_resource type="AudioStream" uid="uid://dq7j4ylfd5qee" path="res://assets/sound/music/Menu.mp3" id="6_2irdu"]
 [ext_resource type="AudioStream" uid="uid://duhyhh5aa8wcr" path="res://assets/sound/music/MenuGong.mp3" id="7_liob1"]
+[ext_resource type="AudioStream" uid="uid://csj3hdt0u6bsa" path="res://assets/sound/misc/MenuStinger.wav" id="8_mckg8"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_wsue3"]
 size = Vector2(16, 16)
@@ -716,6 +717,7 @@ points = PackedVector3Array(-0.217788, -0.0271672, -0.028496, 0.222696, 0.070697
 
 [sub_resource type="Animation" id="Animation_pa00n"]
 resource_name = "Exit"
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -723,7 +725,7 @@ tracks/0/path = NodePath("OmniLight3D:light_energy")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.7),
+"times": PackedFloat32Array(0, 1.7),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [15.934, 0.0]
@@ -735,7 +737,7 @@ tracks/1/path = NodePath("OmniLight3D2:light_energy")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.7),
+"times": PackedFloat32Array(0, 1.7),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [15.934, 0.0]
@@ -747,7 +749,7 @@ tracks/2/path = NodePath("OmniLight3D3:light_energy")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.7),
+"times": PackedFloat32Array(0, 1.7),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [15.934, 0.0]
@@ -759,7 +761,7 @@ tracks/3/path = NodePath("OmniLight3D4:light_energy")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.7),
+"times": PackedFloat32Array(0, 1.7),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [15.934, 0.0]
@@ -771,7 +773,7 @@ tracks/4/path = NodePath("turnip:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.9),
+"times": PackedFloat32Array(0, 1.9),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0.901335, 1.93464, -2.0983), Vector3(0.901, 1.935, -50)]
@@ -783,7 +785,7 @@ tracks/5/path = NodePath("StartGameMenuItem:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.9),
+"times": PackedFloat32Array(0, 1.9),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(2.08165e-12, 2.08165e-12, -50)]
@@ -795,7 +797,7 @@ tracks/6/path = NodePath("QuitMenuItem:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.9),
+"times": PackedFloat32Array(0, 1.9),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(2.08165e-12, 2.08165e-12, -50)]
@@ -1013,6 +1015,9 @@ autoplay = true
 [node name="MenuGong" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_liob1")
 autoplay = true
+
+[node name="MenuStinger" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_mckg8")
 
 [node name="ExitAnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
