@@ -1,6 +1,6 @@
 # Dark Roots - Global Gamejam 2023
 
-[Video](https://www.youtube.com/watch?v=kJ11aoqpjGU) | [Gamejam](https://globalgamejam.org/2023/games/dark-roots-2) | [Download](https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqa3hCNG1mclVFU2loTDcxTVVQbDQ3UXpxOTJxUXxBQ3Jtc0trWWtvdGFKWXlTWHMwVkZYQ1Blb19Oc1dqWTFvVlJXMXIycFBva0VHN2pDcWcwWWY2SUdDclN6Ym1xRkw5eUVSZ0RhdWxnV3lZeG92eWk5RTk4ZHVReUJWN2tiU2Q2M0duX2tvN0hnRnBMcjVsYldfUQ&q=https%3A%2F%2Fnullifiedgames.itch.io%2Fdark-roots&v=kJ11aoqpjGU)
+[Video](https://www.youtube.com/watch?v=kJ11aoqpjGU) | [Gamejam](https://globalgamejam.org/2023/games/dark-roots-2) | [Download](https://nullifiedgames.itch.io/dark-roots)
 
 ---
 ![Screenshot](https://img.itch.zone/aW1nLzExMjI2NDU1LnBuZw==/original/SklLN6.png)
