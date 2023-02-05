@@ -17,6 +17,7 @@ var random_vector_time = 5000
 var previously_generated_vector_age = 0
 var target_yaw
 var move_speed
+var can_attack: bool = false
 
 func _ready():
 	target_yaw = rotation.y
@@ -28,6 +29,15 @@ func _physics_process(delta):
 		var rot_x = rotation.x
 		look_at(target.position, Vector3.UP)
 		rotation.x = rot_x
+		if can_attack:
+			if global_position.distance_to(target.global_position) <= bite_distance:
+				$AnimationPlayer.play("Bite")
+				can_attack = false
+				$AttackCooldownTimer.start()
+			elif global_position.distance_to(target.global_position) <= charge_distance:
+				$AnimationPlayer.play("Charge")
+				can_attack = false
+				$AttackCooldownTimer.start()
 	else:
 		rotation.y = lerp_angle(rotation.y, target_yaw, delta * 10)
 	velocity = -global_transform.basis.z * move_speed * delta
@@ -81,9 +91,4 @@ func _on_change_direction_timer_timeout():
 	$ChangeDirectionTimer.start()
 
 func _on_attack_cooldown_timer_timeout():
-	if target:
-		if global_position.distance_to(target.global_position) <= bite_distance:
-				$AnimationPlayer.play("Bite")
-		elif global_position.distance_to(target.global_position) <= charge_distance:
-				$AnimationPlayer.play("Charge")
-	$AttackCooldownTimer.start()
+	can_attack = true
