@@ -48,6 +48,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 func take_damage(amount):
+	$Damage.play()
 	health -= amount
 	if health <= 0:
 		var corpse = corpse_scene.instantiate()
