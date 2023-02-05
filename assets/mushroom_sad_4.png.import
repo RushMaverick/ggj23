@@ -6,7 +6,7 @@ uid="uid://roec1qvmycrj"
 path.s3tc="res://.godot/imported/mushroom_sad_4.png-6677f435e273ecdc52e1b65af9a48462.s3tc.ctex"
 path.etc2="res://.godot/imported/mushroom_sad_4.png-6677f435e273ecdc52e1b65af9a48462.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc", "etc2"],
 "vram_texture": true
 }
 
@@ -18,9 +18,9 @@ dest_files=["res://.godot/imported/mushroom_sad_4.png-6677f435e273ecdc52e1b65af9
 [params]
 
 compress/mode=2
-compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
+compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true

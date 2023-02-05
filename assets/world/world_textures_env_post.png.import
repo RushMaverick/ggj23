@@ -6,7 +6,7 @@ uid="uid://fkt0rv4x3hxr"
 path.s3tc="res://.godot/imported/world_textures_env_post.png-0a7c47100480fd921fe8e437c4706b24.s3tc.ctex"
 path.etc2="res://.godot/imported/world_textures_env_post.png-0a7c47100480fd921fe8e437c4706b24.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc", "etc2"],
 "vram_texture": true
 }
 
@@ -18,9 +18,9 @@ dest_files=["res://.godot/imported/world_textures_env_post.png-0a7c47100480fd921
 [params]
 
 compress/mode=2
-compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
+compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true

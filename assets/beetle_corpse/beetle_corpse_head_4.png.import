@@ -6,7 +6,7 @@ uid="uid://x4sfvmyl32kv"
 path.s3tc="res://.godot/imported/beetle_corpse_head_4.png-82cd7ef606444b778b15b95e392bc642.s3tc.ctex"
 path.etc2="res://.godot/imported/beetle_corpse_head_4.png-82cd7ef606444b778b15b95e392bc642.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc", "etc2"],
 "vram_texture": true
 }
 
@@ -18,9 +18,9 @@ dest_files=["res://.godot/imported/beetle_corpse_head_4.png-82cd7ef606444b778b15
 [params]
 
 compress/mode=2
-compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
+compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true

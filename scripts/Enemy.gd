@@ -56,6 +56,9 @@ func take_damage(amount):
 		corpse.rotation = rotation
 		get_parent().add_child(corpse)
 		queue_free()
+		return true
+	else:
+		return false
 
 func fall(delta):
 	falling_momentum += 0.05

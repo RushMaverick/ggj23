@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://c4m2cl0eidren"]
+[gd_scene load_steps=9 format=3 uid="uid://c4m2cl0eidren"]
 
 [ext_resource type="Texture2D" uid="uid://c0q7hnuhe22ly" path="res://assets/hud_face.png" id="1_7epr2"]
 [ext_resource type="Script" path="res://scripts/HUD.gd" id="1_ey83a"]
+[ext_resource type="FontFile" uid="uid://c3jig22k4d058" path="res://assets/Cinzel_Decorative/CinzelDecorative-Regular.ttf" id="3_hwtg2"]
 
 [sub_resource type="Theme" id="Theme_gw63o"]
 
@@ -13,6 +14,10 @@ bg_color = Color(0.819608, 0.219608, 0.219608, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b4l8k"]
 bg_color = Color(0.380392, 0.819608, 0.219608, 1)
+
+[sub_resource type="Theme" id="Theme_2e44j"]
+default_font = ExtResource("3_hwtg2")
+default_font_size = 54
 
 [node name="HUD" type="Control" node_paths=PackedStringArray("health_bar", "stamina_bar")]
 layout_mode = 3
@@ -31,24 +36,25 @@ layout_mode = 1
 anchors_preset = 0
 offset_left = 20.0
 offset_top = 20.0
-offset_right = 620.0
-offset_bottom = 120.0
+offset_right = 860.0
+offset_bottom = 197.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PlayerStatus"]
 clip_contents = true
 layout_mode = 0
-offset_right = 600.0
-offset_bottom = 100.0
+offset_right = 842.0
+offset_bottom = 173.0
 
 [node name="Portrait" type="TextureRect" parent="PlayerStatus/HBoxContainer"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 texture = ExtResource("1_7epr2")
-expand_mode = 3
+expand_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PlayerStatus/HBoxContainer"]
 custom_minimum_size = Vector2(400, 100)
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="HealthBar" type="ProgressBar" parent="PlayerStatus/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 30)
@@ -67,3 +73,9 @@ theme_override_styles/background = SubResource("StyleBoxFlat_1fulu")
 theme_override_styles/fill = SubResource("StyleBoxFlat_b4l8k")
 value = 100.0
 show_percentage = false
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PlayerStatus/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = SubResource("Theme_2e44j")
+text = "Beetles borked: 0"

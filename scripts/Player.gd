@@ -150,7 +150,9 @@ func attack():
 		sound_grunt[rng.randi_range(0,6)].play()
 		$AnimationPlayer.play("Attack")
 		for enemy in enemies_in_hurtbox:
-			if enemy: enemy.take_damage(damage)
+			if enemy:
+				if enemy.take_damage(damage):
+					$HUD.increase_score()
 
 func take_damage(amount):
 	if is_rolling: return

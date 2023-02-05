@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://nn5sj1sinbna"]
+[gd_scene load_steps=8 format=3 uid="uid://nn5sj1sinbna"]
 
 [ext_resource type="PackedScene" uid="uid://dvbpabmk7fsvt" path="res://scenes/World.tscn" id="1_hiqbr"]
 [ext_resource type="PackedScene" uid="uid://b6yf33nqp0moq" path="res://scenes/Player.tscn" id="2_jotrt"]
 [ext_resource type="Script" path="res://scripts/World.gd" id="2_ybc3b"]
 [ext_resource type="PackedScene" uid="uid://dkgo5dcwkv256" path="res://scenes/FollowCamera.tscn" id="3_shxn7"]
-[ext_resource type="PackedScene" path="res://scenes/MusicPlayer.tscn" id="6_47qcq"]
-[ext_resource type="Script" path="res://scripts/score.gd" id="6_c6o7k"]
+[ext_resource type="PackedScene" uid="uid://b44p243da08c1" path="res://scenes/MusicPlayer.tscn" id="6_47qcq"]
 
 [sub_resource type="GDScript" id="GDScript_nmbtp"]
 script/source = "extends Node3D
@@ -20,10 +19,6 @@ background_color = Color(0.8, 0.8, 0.741176, 1)
 ssao_enabled = true
 ssil_enabled = true
 volumetric_fog_enabled = true
-
-[sub_resource type="LabelSettings" id="LabelSettings_mi0gr"]
-font_size = 110
-font_color = Color(0.917647, 0.560784, 0.337255, 0.921569)
 
 [node name="Main" type="Node3D"]
 script = SubResource("GDScript_nmbtp")
@@ -40,21 +35,8 @@ target = NodePath("../Player")
 [node name="Player" parent="." instance=ExtResource("2_jotrt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.27688, 0)
 
-[node name="Node2D" type="Node2D" parent="."]
-
-[node name="score" type="Label" parent="Node2D"]
-offset_left = 30.0
-offset_top = 128.0
-offset_right = 463.0
-offset_bottom = 268.0
-size_flags_vertical = 0
-text = "Score = 0"
-label_settings = SubResource("LabelSettings_mi0gr")
-script = ExtResource("6_c6o7k")
-
 [node name="MusicPlayer" parent="." instance=ExtResource("6_47qcq")]
 
-[connection signal="child_exiting_tree" from="World" to="Node2D/score" method="_on_world_child_exiting_tree"]
 [connection signal="moved" from="FollowCamera" to="Player" method="_on_follow_camera_moved"]
 [connection signal="enemy_target_set" from="Player" to="FollowCamera" method="_on_player_enemy_target_set"]
 [connection signal="enemy_target_unset" from="Player" to="FollowCamera" method="_on_player_enemy_target_unset"]

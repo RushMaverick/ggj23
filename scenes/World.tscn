@@ -1,6 +1,6 @@
 [gd_scene load_steps=45 format=3 uid="uid://dvbpabmk7fsvt"]
 
-[ext_resource type="Texture2D" uid="uid://dyd7eckdsu63e" path="res://assets/world/world_8.png" id="1_tklet"]
+[ext_resource type="Texture2D" uid="uid://mjyhmldovp1j" path="res://assets/world/world_8.png" id="1_tklet"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_desjr"]
 resource_name = "root"
