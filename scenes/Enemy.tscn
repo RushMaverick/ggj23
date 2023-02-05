@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://da7xiidgi54q3"]
+[gd_scene load_steps=14 format=3 uid="uid://da7xiidgi54q3"]
 
 [ext_resource type="Script" path="res://scripts/Enemy.gd" id="1_rcc5m"]
 [ext_resource type="Texture2D" uid="uid://bjfh2jymfyenq" path="res://assets/beetle/beetle_6.png" id="2_r8hty"]
+[ext_resource type="AudioStream" uid="uid://c4ncemrqltfem" path="res://assets/sound/enemy/Gib.wav" id="3_q45nf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n1l45"]
 resource_name = "Body"
@@ -470,6 +471,10 @@ wait_time = 5.0
 
 [node name="AttackCooldownTimer" type="Timer" parent="."]
 wait_time = 2.0
+
+[node name="Death" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_q45nf")
+bus = &"SFX"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="animation_started" from="AnimationPlayer" to="." method="_on_animation_player_animation_started"]

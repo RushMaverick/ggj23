@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://ddhxbj0cll1bk"]
+[gd_scene load_steps=20 format=3 uid="uid://ddhxbj0cll1bk"]
 
 [ext_resource type="Script" path="res://scripts/EnemyCorpse.gd" id="1_8hbtx"]
 [ext_resource type="PackedScene" uid="uid://kfsdychbk5a8" path="res://assets/beetle_corpse/beetle_corpse_head.glb" id="1_s2q6f"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cdfsqco0k0xge" path="res://assets/beetle_corpse/beetle_corpse_leg_right.glb" id="4_c3t0t"]
 [ext_resource type="PackedScene" uid="uid://bnlmjj7ao3eju" path="res://assets/beetle_corpse/beetle_corpse_leg_left.glb" id="5_itjur"]
 [ext_resource type="Texture2D" uid="uid://bxf7px2tfq5j0" path="res://assets/beetle_corpse/splatter.png" id="6_f4bjq"]
+[ext_resource type="AudioStream" uid="uid://c4ncemrqltfem" path="res://assets/sound/enemy/Gib.wav" id="8_w0ps8"]
 
 [sub_resource type="Animation" id="Animation_35256"]
 length = 0.001
@@ -368,5 +369,9 @@ skeleton = NodePath("")
 [node name="SplatterDrop5" type="MeshInstance3D" parent="SplatterDrops"]
 mesh = SubResource("ArrayMesh_0eric")
 skeleton = NodePath("")
+
+[node name="DeathSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("8_w0ps8")
+autoplay = true
 
 [connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]
