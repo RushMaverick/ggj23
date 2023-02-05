@@ -6,7 +6,7 @@ uid="uid://be7xyu3tfid7g"
 path.s3tc="res://.godot/imported/mushrooms2_mossBase Color.png-43aa24f1ec15fd9e2bb44f1fd194ce85.s3tc.ctex"
 path.etc2="res://.godot/imported/mushrooms2_mossBase Color.png-43aa24f1ec15fd9e2bb44f1fd194ce85.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc", "etc2"],
 "vram_texture": true
 }
 
@@ -18,9 +18,9 @@ dest_files=["res://.godot/imported/mushrooms2_mossBase Color.png-43aa24f1ec15fd9
 [params]
 
 compress/mode=2
-compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
+compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true

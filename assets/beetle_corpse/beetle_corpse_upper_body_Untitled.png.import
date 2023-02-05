@@ -6,7 +6,7 @@ uid="uid://dljv34l06h50o"
 path.s3tc="res://.godot/imported/beetle_corpse_upper_body_Untitled.png-310664965fdc3bf5cb26b7943129250e.s3tc.ctex"
 path.etc2="res://.godot/imported/beetle_corpse_upper_body_Untitled.png-310664965fdc3bf5cb26b7943129250e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc", "etc2"],
 "vram_texture": true
 }
 
@@ -18,9 +18,9 @@ dest_files=["res://.godot/imported/beetle_corpse_upper_body_Untitled.png-3106649
 [params]
 
 compress/mode=2
-compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
+compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
