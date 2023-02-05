@@ -15,6 +15,9 @@ var mouse_delta = Vector2.ZERO
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
+func fade_out():
+	$FadeAnimationPlayer.play("FadeOut")
+
 func _physics_process(_delta):
 	if target:
 		position = target.position
